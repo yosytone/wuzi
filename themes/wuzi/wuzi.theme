@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Drupal\views\Views;
+
 /**
  * @file
  * Functions to support theming in the wuzi theme.
@@ -10,20 +12,50 @@ declare(strict_types=1);
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
-function wuzi_preprocess_html(array &$variables): void {
-
-}
+function wuzi_preprocess_html(array &$variables): void {}
 
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
-function wuzi_preprocess_page(array &$variables): void {
-
-}
+function wuzi_preprocess_page(array &$variables): void {}
 
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
-function wuzi_preprocess_node(array &$variables): void {
+function wuzi_preprocess_node(array &$variables): void {}
 
+//////////////
+
+function wuzi_preprocess_block__block_content__type__block_list(&$variables)
+{
+    $block = $variables['content']['#block_content'] ?? null;
+    if (!$block) {
+        return;
+    }
+
+    $view_ref = $block->get('field_block_view_list')->first();
+    if (!$view_ref || !$view_ref->entity) {
+        return;
+    }
+    $view_entity = $view_ref->entity;
+
+    $display_id = 'block_1'; // fallback
+    if ($block->hasField('field_view_display_id') && !$block->get('field_view_display_id')->isEmpty()) {
+        $display_id = $block->get('field_view_display_id')->value;
+    }
+
+    $view = Views::getView($view_entity->id());
+    if (!$view || !$view->setDisplay($display_id)) {
+        \Drupal::logger('wuzi')->warning('View @view or display @display not found.', [
+            '@view' => $view_entity->id(),
+            '@display' => $display_id,
+        ]);
+        return;
+    }
+
+    // render
+    $rendered = $view->render();
+    if (!empty($rendered)) {
+        $variables['view_output'] = $rendered;
+    }
 }

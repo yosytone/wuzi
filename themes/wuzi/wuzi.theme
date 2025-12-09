@@ -12,19 +12,23 @@ use Drupal\views\Views;
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
-function wuzi_preprocess_html(array &$variables): void {}
+function wuzi_preprocess_html(array &$variables): void {
+
+}
 
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
-function wuzi_preprocess_page(array &$variables): void {}
+function wuzi_preprocess_page(array &$variables): void {
+
+}
 
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
-function wuzi_preprocess_node(array &$variables): void {}
+function wuzi_preprocess_node(array &$variables): void {
 
-//////////////
+}
 
 function wuzi_preprocess_block__block_content__type__block_list(&$variables)
 {

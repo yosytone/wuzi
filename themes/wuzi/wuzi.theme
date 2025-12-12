@@ -106,12 +106,13 @@ function wuzi_preprocess_block__block_content__type__block_banner(&$variables)
                     }
                 }
 
+                $link = $paragraph->get('field_slide_button_url')->first();
                 $slides[] = [
                     'image' => $image,
                     'title' => $paragraph->get('field_slide_title')->value ?? '',
                     'description' => $paragraph->get('field_slide_description')->value ?? '',
-                    'button_text' => $paragraph->get('field_slide_button_text')->value ?: 'Shop now',
-                    'button_url' => $paragraph->get('field_slide_button_url')->first(),
+                    'button_url' => $link,
+                    'button_text' => $link ? ($link->title ?: 'Shop now') : '',
                 ];
             }
         }
@@ -122,21 +123,42 @@ function wuzi_preprocess_block__block_content__type__block_banner(&$variables)
         foreach ($block->get('field_banners')->referencedEntities() as $paragraph) {
             if ($paragraph instanceof Paragraph && $paragraph->bundle() === 'banner') {
                 $image = [];
-                if ($paragraph->hasField('field_banner_image') && !$paragraph->get('field_banner_image')->isEmpty()) {
-                    $image = $paragraph->get('field_banner_image')->view([
-                        'type' => 'image',
-                        'settings' => [
-                            'image_style' => 'large',
-                            'image_link' => '',
-                        ],
-                    ]);
+                if ($paragraph->hasField('field_slide_image') && !$paragraph->get('field_slide_image')->isEmpty()) {
+                    $referenced_entity = $paragraph->get('field_slide_image')->entity;
+                    if ($referenced_entity) {
+                        $uri = NULL;
+                        $alt = '';
+
+                        if ($referenced_entity instanceof Media && $referenced_entity->hasField('field_media_image')) {
+                            $media_image = $referenced_entity->get('field_media_image')->entity;
+                            if ($media_image instanceof File) {
+                                $uri = $media_image->getFileUri();
+                                $alt = $referenced_entity->get('field_media_image')->alt ?? '';
+                            }
+                        }
+
+                        elseif ($referenced_entity instanceof File) {
+                            $uri = $referenced_entity->getFileUri();
+                            $alt = '';
+                        }
+
+                        if ($uri) {
+                            $image = [
+                                '#theme' => 'image_style',
+                                '#style_name' => 'large',
+                                '#uri' => $uri,
+                                '#alt' => $alt,
+                            ];
+                        }
+                    }
                 }
 
+                $link = $paragraph->get('field_slide_button_url')->first();
                 $banners[] = [
                     'image' => $image,
                     'title' => $paragraph->get('field_slide_title')->value ?? '',
-                    'button_text' => $paragraph->get('field_slide_button_text')->value ?: 'Shop Now',
-                    'button_url' => $paragraph->get('field_slide_button_url')->first(),
+                    'button_url' => $link,
+                    'button_text' => $link ? ($link->title ?: 'Shop now') : '',
                 ];
             }
         }

@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.banner.field_slide_title
     - paragraphs.paragraphs_type.banner
   module:
+    - link
     - media_library
 id: paragraph.banner.default
 targetEntityType: paragraph
@@ -24,12 +25,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_slide_button_url:
-    type: string_textfield
+    type: link_default
     weight: 4
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_slide_image:
     type: media_library_widget

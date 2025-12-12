@@ -10,6 +10,7 @@ dependencies:
     - field.field.paragraph.slide.field_slide_title
     - paragraphs.paragraphs_type.slide
   module:
+    - link
     - media_library
 id: paragraph.slide.default
 targetEntityType: paragraph
@@ -25,12 +26,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_slide_button_url:
-    type: string_textfield
+    type: link_default
     weight: 4
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_slide_description:
     type: string_textarea

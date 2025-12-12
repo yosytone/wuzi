@@ -1,10 +1,12 @@
-uuid: 2492de37-e802-492b-818f-cb1b610f3bc6
+uuid: 64220452-f6a0-4469-a581-4637eb44572e
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_slide_button_url
     - paragraphs.paragraphs_type.slide
+  module:
+    - link
 id: paragraph.slide.field_slide_button_url
 field_name: field_slide_button_url
 entity_type: paragraph
@@ -13,7 +15,14 @@ label: slide_button_url
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    attributes: {  }
+    uri: 'internal:/'
+    title: 'Купить сейчас'
+    options: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  title: 1
+  link_type: 17
+field_type: link

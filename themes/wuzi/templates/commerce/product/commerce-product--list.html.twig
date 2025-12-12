@@ -20,7 +20,7 @@
  */
  
 #}
-<article class="product" {{ attributes }}>
+<article {{ attributes }}>
   <div class="product-image-field">{{ product.field_image }}</div>
   {{- product|without('variation_attributes','field_image') -}}
 </article>

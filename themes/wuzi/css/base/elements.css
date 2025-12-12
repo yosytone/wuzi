@@ -2,3 +2,107 @@
 .product .field-label {
   display: none;
 }
+
+@media (min-width: 768px) {
+  /* slider */
+  .slider-section-left {
+    flex: calc(70% - 1rem);
+    max-width: calc(70% - 1rem);
+    min-height: 400px;
+  }
+
+  .slider-item {
+    min-height: 400px;
+  }
+
+  .slider-image {
+      position: absolute;
+      right: 0;
+  }
+
+  .product .field-image {
+    /*width: 300px;          /* ширина контейнера */
+    /*height: 200px;         /* высота контейнера */
+    /*overflow: hidden;
+    /*position: relative;
+    */
+  }
+
+  .product .field-type-image img {
+    max-height: unset;
+  }
+}
+
+/* Обёртка списка товаров */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px; /* отступы между карточками */
+  margin: 0;
+  padding: 0;
+}
+
+/* Отдельная карточка товара */
+.products .product {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s;
+}
+
+.products .product:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Изображение — обрезаем до фиксированной высоты */
+.product .product-image-field {
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+}
+
+.product .product-image-field img {
+  width: auto;
+  height: 100%;
+  object-fit: contain; /* или cover — в зависимости от задачи */
+  object-position: center;
+}
+
+/* Название товара */
+.product .field-name-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+/* Цена */
+.product .field-name-price {
+  margin: 8px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Скрыть технические поля (если нужно) */
+
+
+/* Адаптив: 2 товара на планшетах, 1 на мобильных */
+@media (max-width: 768px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}

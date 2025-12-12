@@ -3,10 +3,12 @@ global:
   version: 1.0.14
   css:
     component:
+      css/base/elements,css: {}
       css/bootstrap-icons.css: {}
       css/slick.css: {}
       css/slick-theme.css: {}
     theme:
+      css/base/elements.css: {}
       css/style.css: {}
   js:
     js/slick.js: {}

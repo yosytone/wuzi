@@ -1,0 +1,22 @@
+uuid: 73a57aa3-de4b-46ed-98a7-27d12bf0840f
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - wuzi
+_core:
+  default_config_hash: Slek_yN3t0frsKrPghQ2uRCm12HACXzypVklGkDKBaw
+id: wuzi_messages
+theme: wuzi
+region: header
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

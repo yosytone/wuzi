@@ -1,0 +1,10 @@
+uuid: 3926a4fc-8b3e-4c11-ac34-caa88d0ed8a0
+langcode: en
+status: true
+dependencies: {  }
+id: specifications
+label: 'Дополнительные характеристики'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

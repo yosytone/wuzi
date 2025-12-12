@@ -1,0 +1,27 @@
+uuid: 09c07b71-eded-45ef-baec-9fb8c675bf84
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - wuzi
+_core:
+  default_config_hash: axU-D9vRz4jNYqbHxXFTgkU8KTDAQ5bO3FAvn06hqEA
+id: wuzi_account_menu
+theme: wuzi
+region: header
+weight: -4
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

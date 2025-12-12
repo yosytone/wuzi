@@ -1,0 +1,10 @@
+uuid: 2017724d-98cb-4863-b991-62ca0e887ec5
+langcode: en
+status: true
+dependencies: {  }
+id: himiya
+label: Химия
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: null

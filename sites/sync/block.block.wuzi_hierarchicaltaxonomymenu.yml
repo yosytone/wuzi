@@ -1,0 +1,38 @@
+uuid: fd0cda96-d66d-4fee-a957-d04311f98e74
+langcode: en
+status: true
+dependencies:
+  module:
+    - hierarchical_taxonomy_menu
+  theme:
+    - wuzi
+id: wuzi_hierarchicaltaxonomymenu
+theme: wuzi
+region: sidebar_first
+weight: 0
+provider: null
+plugin: hierarchical_taxonomy_menu
+settings:
+  id: hierarchical_taxonomy_menu
+  label: Каталог
+  label_display: visible
+  provider: hierarchical_taxonomy_menu
+  vocabulary: product_categories|
+  max_depth: 100
+  dynamic_block_title: false
+  collapsible: false
+  stay_open: false
+  interactive_parent: false
+  hide_block: false
+  use_image_style: false
+  image_height: 16
+  image_width: 16
+  image_style: large
+  max_age: '0'
+  base_term: ''
+  dynamic_base_term: false
+  show_count: 0
+  referencing_field: _none
+  calculate_count_recursively: false
+  exclude_empty_terms: false
+visibility: {  }

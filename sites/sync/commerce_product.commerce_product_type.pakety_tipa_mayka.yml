@@ -1,0 +1,13 @@
+uuid: ab9ab62e-4aa6-4a19-b3bf-0dcadcbe4048
+langcode: en
+status: true
+dependencies: {  }
+id: pakety_tipa_mayka
+label: 'Пакеты типа майка'
+traits: {  }
+locked: false
+description: ''
+variationTypes:
+  - paket
+multipleVariations: true
+injectVariationFields: true

@@ -1,0 +1,32 @@
+uuid: 94017a10-f607-4a65-a85a-096640b10d31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.specifications.field_specification_name
+    - field.field.paragraph.specifications.field_specification_value
+    - paragraphs.paragraphs_type.specifications
+id: paragraph.specifications.default
+targetEntityType: paragraph
+bundle: specifications
+mode: default
+content:
+  field_specification_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_specification_value:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -235,7 +235,7 @@ $databases = [];
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-# $settings['config_sync_directory'] = '/directory/outside/webroot';
+$settings['config_sync_directory'] = '../config/sync';
 
 /**
  * Settings:
@@ -825,4 +825,4 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_bv5pUkf5OC5sA7xhHOPLoHh5eWjG-z2uataAkfqPGAXi-iZ67so8BVeXPAl21vg9deZ_i9v1pg/sync';
+$settings['config_sync_directory'] = 'sites/sync';

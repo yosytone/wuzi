@@ -1,0 +1,23 @@
+uuid: 031ace25-d977-4933-8deb-3740f0aa0b0a
+langcode: en
+status: false
+dependencies:
+  module:
+    - node
+  theme:
+    - wuzi
+_core:
+  default_config_hash: I8g6ZFPKWU_WoUSby_lySuEcrkOaFi7_CFyTAzPQKVs
+id: wuzi_syndicate
+theme: wuzi
+region: header
+weight: -8
+provider: null
+plugin: node_syndicate_block
+settings:
+  id: node_syndicate_block
+  label: 'RSS feed'
+  label_display: '0'
+  provider: node
+  block_count: 10
+visibility: {  }

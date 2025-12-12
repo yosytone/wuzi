@@ -1,0 +1,22 @@
+uuid: 0bf0d43d-6896-4a87-bcd1-4c5f4757bfa6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wuzi
+_core:
+  default_config_hash: It1dYBpENqvVxeYG-4EvxSWDS8WwhQ-Il0DxQYRahxs
+id: wuzi_content
+theme: wuzi
+region: content
+weight: -11
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

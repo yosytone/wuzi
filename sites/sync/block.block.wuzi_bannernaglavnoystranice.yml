@@ -1,0 +1,25 @@
+uuid: 6fa12638-bd2d-4c94-9688-28e6f979293b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:block_banner:e5b32c09-3c73-4e04-8ab3-a642dcd63b8d'
+  module:
+    - block_content
+  theme:
+    - wuzi
+id: wuzi_bannernaglavnoystranice
+theme: wuzi
+region: hero
+weight: 0
+provider: null
+plugin: 'block_content:e5b32c09-3c73-4e04-8ab3-a642dcd63b8d'
+settings:
+  id: 'block_content:e5b32c09-3c73-4e04-8ab3-a642dcd63b8d'
+  label: 'Баннер на главной странице'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: c3f5eb2c-6639-4686-bd89-7393939501dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - wuzi
+_core:
+  default_config_hash: tbgj8InEL7STnYWOisTsELcL2j6N5CvoyldiAcaeoLU
+id: wuzi_search_form_wide
+theme: wuzi
+region: search_box
+weight: -8
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

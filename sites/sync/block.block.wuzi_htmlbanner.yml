@@ -1,0 +1,25 @@
+uuid: 52e59795-a883-4e42-ab34-bbe35618c8ef
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:16a28e29-e952-49d2-a35d-7ad2945c66e4'
+  module:
+    - block_content
+  theme:
+    - wuzi
+id: wuzi_htmlbanner
+theme: wuzi
+region: hidden_blocks
+weight: 0
+provider: null
+plugin: 'block_content:16a28e29-e952-49d2-a35d-7ad2945c66e4'
+settings:
+  id: 'block_content:16a28e29-e952-49d2-a35d-7ad2945c66e4'
+  label: 'HTML BANNER'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

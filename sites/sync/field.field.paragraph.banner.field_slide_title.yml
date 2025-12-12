@@ -1,0 +1,19 @@
+uuid: fc2239f1-2508-46a9-a01f-5f5778f4b1ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slide_title
+    - paragraphs.paragraphs_type.banner
+id: paragraph.banner.field_slide_title
+field_name: field_slide_title
+entity_type: paragraph
+bundle: banner
+label: slide_title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

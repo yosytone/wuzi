@@ -1,0 +1,22 @@
+uuid: c54d30ba-05cb-4788-8c5f-dab91b680b75
+langcode: en
+status: true
+dependencies:
+  theme:
+    - wuzi
+_core:
+  default_config_hash: v8eTSlYf9MlVC3YMD3jis6kP9d_enWDx5i76K09PvP0
+id: wuzi_primary_local_tasks
+theme: wuzi
+region: content
+weight: -14
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

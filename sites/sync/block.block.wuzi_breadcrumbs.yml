@@ -1,0 +1,22 @@
+uuid: 83611b3b-859e-4280-bd42-c9786ea11946
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wuzi
+_core:
+  default_config_hash: v3ZiUY0Uoig8LMdG6l1KNwFZpC-DRvf5ZjBdZ5HdhUQ
+id: wuzi_breadcrumbs
+theme: wuzi
+region: page_header
+weight: -8
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

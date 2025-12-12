@@ -1,0 +1,10 @@
+uuid: cd445faf-6908-4149-9b09-c89d9642d33d
+langcode: en
+status: true
+dependencies: {  }
+id: banner
+label: Баннер
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

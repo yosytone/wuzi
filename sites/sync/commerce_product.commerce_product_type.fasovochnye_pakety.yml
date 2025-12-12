@@ -1,0 +1,13 @@
+uuid: a7ee0260-8e06-4975-b725-8bc8646a1b17
+langcode: en
+status: true
+dependencies: {  }
+id: fasovochnye_pakety
+label: 'Фасовочные пакеты'
+traits: {  }
+locked: false
+description: ''
+variationTypes:
+  - paket
+multipleVariations: true
+injectVariationFields: true

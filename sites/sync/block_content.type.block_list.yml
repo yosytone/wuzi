@@ -1,0 +1,8 @@
+uuid: 8babb2c4-d1ef-44c4-8db7-04c5ca39b449
+langcode: en
+status: true
+dependencies: {  }
+id: block_list
+label: block_list
+revision: false
+description: null

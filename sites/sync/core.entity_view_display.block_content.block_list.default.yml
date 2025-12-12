@@ -1,0 +1,30 @@
+uuid: 2735adec-0a05-4716-bf3d-a1649d0163aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_list
+    - field.field.block_content.block_list.body
+    - field.field.block_content.block_list.field_block_view_list
+  module:
+    - text
+id: block_content.block_list.default
+targetEntityType: block_content
+bundle: block_list
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_block_view_list:
+    type: entity_reference_entity_id
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

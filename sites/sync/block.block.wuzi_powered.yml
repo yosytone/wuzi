@@ -1,0 +1,22 @@
+uuid: bbb299fe-73bf-4a51-93bc-45cc712aa46b
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - wuzi
+_core:
+  default_config_hash: vK88Ik0dx1ZlqJUSOrj8c_VBXp6zs3ziIy9D62S0LCA
+id: wuzi_powered
+theme: wuzi
+region: header
+weight: -3
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

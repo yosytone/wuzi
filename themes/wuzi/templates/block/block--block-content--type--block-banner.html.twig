@@ -1,0 +1,83 @@
+<!--Баннер на главной странице -->
+
+{# block--block-content--type--block-banner.html.twig #}
+{# _preprocess_block__block_content__type__block_list #}
+
+<div{{ attributes.addClass('block') }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    <div{{ content_attributes.addClass('block-content') }}>
+      <div{{ attributes.addClass('block', 'block-front-slider') }}>
+        <div class="block-content">
+          <div class="slider-container">
+
+            <div class="slider-section slider-section-left">
+              <div class="slider">
+                {% for slide in slides %}
+                  <div class="slider-item">
+                    <div class="slider-image">
+                      {% if slide.image %}
+                        {{ slide.image }}
+                      {% else %}
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2500' height='1250' viewBox='0 0 2500 1250'%3E%3Crect width='100%25' height='100%25' fill='%23ccc'/%3E%3Ctext x='50%25' y='50%25' font-size='48' text-anchor='middle' fill='%23999'%3ENo image%3C/text%3E%3C/svg%3E" alt="Placeholder">
+                      {% endif %}
+                    </div>
+                    <div class="slider-text">
+                      <div class="width50">
+                        {% if slide.title %}
+                          <h2>{{ slide.title }}</h2>
+                        {% endif %}
+                        {% if slide.description %}
+                          <p>{{ slide.description }}</p>
+                        {% endif %}
+                        {% if slide.button_url and slide.button_url.uri %}
+                          <div>
+                            <a class="button" href="{{ slide.button_url.uri }}">
+                              {{ slide.button_text|default('Shop now') }}
+                            </a>
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="slider-section slider-section-right">
+              {% for banner in banners %}
+                <div class="banner">
+                  <div class="banner-image">
+                    {% if banner.image %}
+                      {{ banner.image }}
+                    {% else %}
+                      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2500' height='1250' viewBox='0 0 2500 1250'%3E%3Crect width='100%25' height='100%25' fill='%23eee'/%3E%3Ctext x='50%25' y='50%25' font-size='48' text-anchor='middle' fill='%23999'%3ENo banner image%3C/text%3E%3C/svg%3E" alt="Placeholder">
+                    {% endif %}
+                  </div>
+                  <div class="banner-text">
+                    <div class="width60">
+                      {% if banner.title %}
+                        <h3>{{ banner.title }}</h3>
+                      {% endif %}
+                      {% if banner.button_url and banner.button_url.uri %}
+                        <div>
+                          <a class="button" href="{{ banner.button_url.uri }}">
+                            {{ banner.button_text|default('Shop Now') }}
+                          </a>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--/block-content -->
+  {% endblock %}
+</div><!--/block -->

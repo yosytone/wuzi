@@ -1,0 +1,30 @@
+uuid: fc1966e0-0fad-4485-a23d-bf54a6c4534e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:block_list:9d98702b-88d4-4447-8246-1dacdbea7eb3'
+  module:
+    - block_content
+    - system
+  theme:
+    - wuzi
+id: wuzi_populyarnyetovaryx8
+theme: wuzi
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:9d98702b-88d4-4447-8246-1dacdbea7eb3'
+settings:
+  id: 'block_content:9d98702b-88d4-4447-8246-1dacdbea7eb3'
+  label: 'Популярные товары  (x8)'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /frontpage

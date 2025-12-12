@@ -1,0 +1,51 @@
+uuid: 49d0d2e5-05d0-47f4-8723-c393babdf248
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner.field_slide_button_text
+    - field.field.paragraph.banner.field_slide_button_url
+    - field.field.paragraph.banner.field_slide_image
+    - field.field.paragraph.banner.field_slide_title
+    - paragraphs.paragraphs_type.banner
+  module:
+    - media_library
+id: paragraph.banner.default
+targetEntityType: paragraph
+bundle: banner
+mode: default
+content:
+  field_slide_button_text:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_slide_button_url:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_slide_image:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_slide_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

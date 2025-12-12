@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 use Drupal\views\Views;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
 
 /**
  * @file
@@ -12,23 +15,17 @@ use Drupal\views\Views;
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
-function wuzi_preprocess_html(array &$variables): void {
-
-}
+function wuzi_preprocess_html(array &$variables): void {}
 
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
-function wuzi_preprocess_page(array &$variables): void {
-
-}
+function wuzi_preprocess_page(array &$variables): void {}
 
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
-function wuzi_preprocess_node(array &$variables): void {
-
-}
+function wuzi_preprocess_node(array &$variables): void {}
 
 function wuzi_preprocess_block__block_content__type__block_list(&$variables)
 {
@@ -62,4 +59,89 @@ function wuzi_preprocess_block__block_content__type__block_list(&$variables)
     if (!empty($rendered)) {
         $variables['view_output'] = $rendered;
     }
+}
+
+/**
+ * Implements hook_preprocess_block__block_content__type__block_banner().
+ */
+function wuzi_preprocess_block__block_content__type__block_banner(&$variables)
+{
+    $block = $variables['content']['#block_content'] ?? NULL;
+    if (!$block) {
+        return;
+    }
+
+    $slides = [];
+    if ($block->hasField('field_slides') && !$block->get('field_slides')->isEmpty()) {
+        foreach ($block->get('field_slides')->referencedEntities() as $paragraph) {
+            if ($paragraph instanceof Paragraph && $paragraph->bundle() === 'slide') {
+                $image = [];
+                if ($paragraph->hasField('field_slide_image') && !$paragraph->get('field_slide_image')->isEmpty()) {
+                    $referenced_entity = $paragraph->get('field_slide_image')->entity;
+                    if ($referenced_entity) {
+                        $uri = NULL;
+                        $alt = '';
+
+                        if ($referenced_entity instanceof Media && $referenced_entity->hasField('field_media_image')) {
+                            $media_image = $referenced_entity->get('field_media_image')->entity;
+                            if ($media_image instanceof File) {
+                                $uri = $media_image->getFileUri();
+                                $alt = $referenced_entity->get('field_media_image')->alt ?? '';
+                            }
+                        }
+
+                        elseif ($referenced_entity instanceof File) {
+                            $uri = $referenced_entity->getFileUri();
+                            $alt = '';
+                        }
+
+                        if ($uri) {
+                            $image = [
+                                '#theme' => 'image_style',
+                                '#style_name' => 'large',
+                                '#uri' => $uri,
+                                '#alt' => $alt,
+                            ];
+                        }
+                    }
+                }
+
+                $slides[] = [
+                    'image' => $image,
+                    'title' => $paragraph->get('field_slide_title')->value ?? '',
+                    'description' => $paragraph->get('field_slide_description')->value ?? '',
+                    'button_text' => $paragraph->get('field_slide_button_text')->value ?: 'Shop now',
+                    'button_url' => $paragraph->get('field_slide_button_url')->first(),
+                ];
+            }
+        }
+    }
+
+    $banners = [];
+    if ($block->hasField('field_banners') && !$block->get('field_banners')->isEmpty()) {
+        foreach ($block->get('field_banners')->referencedEntities() as $paragraph) {
+            if ($paragraph instanceof Paragraph && $paragraph->bundle() === 'banner') {
+                $image = [];
+                if ($paragraph->hasField('field_banner_image') && !$paragraph->get('field_banner_image')->isEmpty()) {
+                    $image = $paragraph->get('field_banner_image')->view([
+                        'type' => 'image',
+                        'settings' => [
+                            'image_style' => 'large',
+                            'image_link' => '',
+                        ],
+                    ]);
+                }
+
+                $banners[] = [
+                    'image' => $image,
+                    'title' => $paragraph->get('field_slide_title')->value ?? '',
+                    'button_text' => $paragraph->get('field_slide_button_text')->value ?: 'Shop Now',
+                    'button_url' => $paragraph->get('field_slide_button_url')->first(),
+                ];
+            }
+        }
+    }
+
+    $variables['slides'] = $slides;
+    $variables['banners'] = $banners;
 }

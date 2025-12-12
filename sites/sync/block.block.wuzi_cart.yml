@@ -1,0 +1,24 @@
+uuid: f4210000-8749-43e1-82a9-b5cf6212238e
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_cart
+  theme:
+    - wuzi
+_core:
+  default_config_hash: HUWV788R5zWFzgV76-IQ8wZh_GWQQyqs5tMH-Rl_pKI
+id: wuzi_cart
+theme: wuzi
+region: header
+weight: -9
+provider: null
+plugin: commerce_cart
+settings:
+  id: commerce_cart
+  label: Cart
+  label_display: '0'
+  provider: commerce_cart
+  dropdown: true
+  show_if_empty: true
+visibility: {  }

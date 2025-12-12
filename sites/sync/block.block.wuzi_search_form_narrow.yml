@@ -1,0 +1,23 @@
+uuid: 95c28ae5-4cf9-4bc3-b4df-c17083152aae
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - wuzi
+_core:
+  default_config_hash: BnFs8x--6Pa9dm-X-VDXPQFjC21l_DD7gRjSzf17xLs
+id: wuzi_search_form_narrow
+theme: wuzi
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (narrow)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

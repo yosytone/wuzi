@@ -1,0 +1,30 @@
+uuid: 4542d591-658d-4ecf-9bab-ad6800787e92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.specifications.field_specification_name
+    - field.field.paragraph.specifications.field_specification_value
+    - paragraphs.paragraphs_type.specifications
+id: paragraph.specifications.default
+targetEntityType: paragraph
+bundle: specifications
+mode: default
+content:
+  field_specification_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_specification_value:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

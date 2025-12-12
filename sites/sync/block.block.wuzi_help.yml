@@ -1,0 +1,22 @@
+uuid: 4db85861-956a-4dc8-9465-5ac9a0011432
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - wuzi
+_core:
+  default_config_hash: n8E6mVfIorSDGn8ezlEyuheiYCe3fRhsHO1YEHbUkUk
+id: wuzi_help
+theme: wuzi
+region: header
+weight: -6
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: e69e2b40-4117-4991-9e4b-4fd056100a53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slide_button_text
+    - paragraphs.paragraphs_type.banner
+id: paragraph.banner.field_slide_button_text
+field_name: field_slide_button_text
+entity_type: paragraph
+bundle: banner
+label: slide_button_text
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'Купить сейчас'
+default_value_callback: ''
+settings: {  }
+field_type: string

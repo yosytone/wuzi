@@ -1,0 +1,7 @@
+uuid: 766635a2-2edc-42bd-9132-1ee25ead9bc3
+langcode: en
+status: true
+dependencies: {  }
+id: amount
+label: 'Штук в упаковке'
+elementType: commerce_product_rendered_attribute

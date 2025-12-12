@@ -1,0 +1,5 @@
+name: 'Wuzi blocks'
+type: module
+description: '@todo Add description.'
+package: 'custom'
+core_version_requirement: ^10

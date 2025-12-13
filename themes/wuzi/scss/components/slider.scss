@@ -1,0 +1,31 @@
+/* slider */
+
+/* BANNER */
+.slider-section-left {
+  background-color: #d9dfef;
+}
+
+@media (min-width: 768px) {
+  .slider-section-left {
+    flex: calc(70% - 1rem);
+    max-width: calc(70% - 1rem);
+    min-height: 400px;
+  }
+
+  .slider-item {
+    min-height: 400px;
+  }
+
+  .slider-image {
+     position: absolute;
+    /* right: 0; */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+}

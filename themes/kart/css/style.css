@@ -1782,8 +1782,8 @@ input.delete-order-item {
 /* product catalog page */
 
 /* show only first image on view pages and blocks */
-  /* .view .product .field-image:not(:nth-child(1)) {
-  /* display: none;
+.product .field-image:not(:nth-child(1)) {
+    display: none;
 }
 
 /* Product image on single product page */

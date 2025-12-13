@@ -6,6 +6,7 @@ use Drupal\views\Views;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
+use Drupal\taxonomy\TermInterface;
 
 /**
  * @file
@@ -166,4 +167,18 @@ function wuzi_preprocess_block__block_content__type__block_banner(&$variables)
 
     $variables['slides'] = $slides;
     $variables['banners'] = $banners;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page_title.
+ * Заголовок для страницы категории
+ */
+function wuzi_preprocess_page_title(&$variables) {
+  $route_match = \Drupal::routeMatch();
+  if ($route_match->getRouteName() === 'entity.taxonomy_term.canonical') {
+    $term = $route_match->getParameter('taxonomy_term');
+    if ($term instanceof TermInterface) {
+      $variables['title'] = t('Товары из категории @name', ['@name' => $term->label()]);
+    }
+  }
 }

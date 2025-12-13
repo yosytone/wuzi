@@ -34,19 +34,19 @@ jQuery(document).ready(function ($) {
     $('html, body').scrollTop(0);
   });
   // product variation images
-  $('.product-variation-image > .field-images').slick({
+  $('.product-variation-image .field-images').slick({
     dots: true,
   });
   // product images
-  $('.product-main-image > .field-images').slick({
+  $('.product-main-image .field-images').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    asNavFor: '.product-main-image-nav > .field-images'
+    asNavFor: '.product-main-image-nav .field-images'
   });
-  $('.product-main-image-nav > .field-images').slick({
+  $('.product-main-image-nav .field-images').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
-    asNavFor: '.product-main-image > .field-images',
+    asNavFor: '.product-main-image .field-images',
     centerMode: true,
     focusOnSelect: true,
   });

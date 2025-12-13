@@ -4,14 +4,35 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
+    - field.field.commerce_product_variation.default.field_about_variation
     - field.field.commerce_product_variation.default.field_image
   module:
     - commerce_price
+    - image
 id: commerce_product_variation.default.default
 targetEntityType: commerce_product_variation
 bundle: default
 mode: default
 content:
+  field_about_variation:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: content
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
   list_price:
     type: commerce_price_default
     label: above
@@ -19,7 +40,7 @@ content:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
-    weight: 0
+    weight: 3
     region: content
   price:
     type: commerce_price_default
@@ -28,10 +49,16 @@ content:
       strip_trailing_zeroes: false
       currency_display: symbol
     third_party_settings: {  }
-    weight: 1
+    weight: 4
+    region: content
+  title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
-  field_image: true
   product_id: true
   sku: true
-  title: true

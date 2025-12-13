@@ -5,6 +5,7 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - core.entity_view_mode.commerce_product_variation.cart
+    - field.field.commerce_product_variation.default.field_about_variation
     - field.field.commerce_product_variation.default.field_image
   module:
     - commerce_price
@@ -37,6 +38,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_about_variation: true
   field_image: true
   price: true
   sku: true

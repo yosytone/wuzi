@@ -24,6 +24,9 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
+  dc_ajax_add_cart: 0
+  dc_ajax_add_cart_popup: 0
+  dc_ajax_add_cart_views: 0
   devel: 0
   devel_generate: 0
   dynamic_page_cache: 0

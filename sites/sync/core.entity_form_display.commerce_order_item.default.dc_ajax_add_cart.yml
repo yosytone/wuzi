@@ -1,30 +1,26 @@
-uuid: 91850fa8-a9e1-4e4a-9062-d52df3d3b3cb
+uuid: 8119595e-7652-47fc-89ee-996298bb0625
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_order.commerce_order_item_type.default
+    - core.entity_form_mode.commerce_order_item.dc_ajax_add_cart
   module:
     - commerce_order
-  enforced:
-    module:
-      - commerce_product
-_core:
-  default_config_hash: OLyelsZyDDqQPIGVz4oz8VpJvddm6C0heZtFpIHjEcI
-id: commerce_order_item.default.default
+    - commerce_product
+id: commerce_order_item.default.dc_ajax_add_cart
 targetEntityType: commerce_order_item
 bundle: default
-mode: default
+mode: dc_ajax_add_cart
 content:
   purchased_entity:
-    type: entity_reference_autocomplete
+    type: commerce_product_variation_title
     weight: 0
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      label_display: true
+      label_text: 'Please select'
+      hide_single: true
     third_party_settings: {  }
   quantity:
     type: commerce_quantity
@@ -44,6 +40,4 @@ content:
 hidden:
   adjustments: true
   created: true
-  status: true
   total_price: true
-  uid: true

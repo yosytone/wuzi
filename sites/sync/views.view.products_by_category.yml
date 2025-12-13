@@ -1,18 +1,19 @@
-uuid: 03e4d332-b480-47b9-bbba-f457a923261f
+uuid: c6dbb7f1-e8fa-42b0-ae14-8daf3d91d78d
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.commerce_product_variation.list
+    - core.entity_view_mode.commerce_product.list
+    - taxonomy.vocabulary.product_categories
   module:
     - commerce_product
-id: products_list_variations
-label: 'Products List Variations'
+id: products_by_category
+label: 'Products by Category'
 module: views
-description: ''
+description: 'Товары из категории'
 tag: ''
-base_table: commerce_product_variation_field_data
-base_field: variation_id
+base_table: commerce_product_field_data
+base_field: product_id
 display:
   default:
     id: default
@@ -20,11 +21,11 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Products List Variations'
+      title: 'Товары из категории [term:name]'
       fields:
         title:
           id: title
-          table: commerce_product_variation_field_data
+          table: commerce_product_field_data
           field: title
           relationship: none
           group_type: group
@@ -123,13 +124,52 @@ display:
         options: {  }
       empty: {  }
       sorts: {  }
-      arguments: {  }
+      arguments:
+        field_prod_category_target_id:
+          id: field_prod_category_target_id
+          table: commerce_product__field_prod_category
+          field: field_prod_category_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity_target_id
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: taxonomy_tid
+          default_argument_options:
+            term_page: '1'
+            node: true
+            limit: true
+            vids:
+              product_categories: product_categories
+            anyall: ','
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
       filters:
         status:
           id: status
-          table: commerce_product_variation_field_data
+          table: commerce_product_field_data
           field: status
-          entity_type: commerce_product_variation
+          entity_type: commerce_product
           entity_field: status
           plugin_id: boolean
           value: '1'
@@ -138,12 +178,8 @@ display:
             operator: ''
       style:
         type: default
-        options:
-          row_class: ''
-          default_row_class: false
-          uses_fields: false
       row:
-        type: 'entity:commerce_product_variation'
+        type: 'entity:commerce_product'
         options:
           relationship: none
           view_mode: list
@@ -164,6 +200,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
       tags: {  }
   block_1:
@@ -185,6 +222,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
       tags: {  }
   page_1:
     id: page_1
@@ -193,11 +231,12 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: products-list-variations
+      path: taxonomy/term/%
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
       tags: {  }

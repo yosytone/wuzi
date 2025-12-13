@@ -12,9 +12,7 @@ dependencies:
     - field.field.commerce_product.default.field_prod_category
     - field.field.commerce_product.default.field_specifications
   module:
-    - commerce_product
     - image
-    - text
 _core:
   default_config_hash: 10qgl6V_HwkrJufzsNCV75OpqOeMzzKDJb3BhaogmzQ
 id: commerce_product.default.list
@@ -22,32 +20,16 @@ targetEntityType: commerce_product
 bundle: default
 mode: list
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_amount:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
   field_image:
     type: image
-    label: inline
+    label: above
     settings:
       image_link: content
       image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   title:
     type: string
@@ -55,20 +37,15 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 0
-    region: content
-  variations:
-    type: commerce_add_to_cart
-    label: above
-    settings:
-      combine: true
-    third_party_settings: {  }
-    weight: 4
+    weight: 1
     region: content
 hidden:
+  body: true
   created: true
+  field_amount: true
   field_color: true
   field_prod_category: true
   field_specifications: true
   stores: true
   uid: true
+  variations: true

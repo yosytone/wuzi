@@ -1,0 +1,17 @@
+uuid: a4ee901f-64e7-403e-8dc4-33cc53a9748a
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+  enforced:
+    module:
+      - commerce_cart
+      - dc_ajax_add_cart
+_core:
+  default_config_hash: 6mduyH1ZDkb_YC3Te6zSD6N3XE_fxz0bVSPHSgYHVo8
+id: commerce_order_item.dc_ajax_add_cart
+label: 'Ajax add to cart'
+description: ''
+targetEntityType: commerce_order_item
+cache: true

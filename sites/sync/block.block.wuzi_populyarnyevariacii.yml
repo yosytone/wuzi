@@ -1,23 +1,23 @@
-uuid: fc1966e0-0fad-4485-a23d-bf54a6c4534e
+uuid: ff174f69-c57c-4d95-b9fc-35ba2306457b
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:block_list:9d98702b-88d4-4447-8246-1dacdbea7eb3'
+    - 'block_content:block_list:970a4f66-59ea-46b9-8606-745c50ebd134'
   module:
     - block_content
     - system
   theme:
     - wuzi
-id: wuzi_populyarnyetovaryx8
+id: wuzi_populyarnyevariacii
 theme: wuzi
 region: content
 weight: 0
 provider: null
-plugin: 'block_content:9d98702b-88d4-4447-8246-1dacdbea7eb3'
+plugin: 'block_content:970a4f66-59ea-46b9-8606-745c50ebd134'
 settings:
-  id: 'block_content:9d98702b-88d4-4447-8246-1dacdbea7eb3'
-  label: 'Популярные товары  (x8)'
+  id: 'block_content:970a4f66-59ea-46b9-8606-745c50ebd134'
+  label: 'Популярные вариации'
   label_display: visible
   provider: block_content
   status: true
@@ -27,4 +27,4 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: /frontpage
+    pages: '<front>'

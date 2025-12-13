@@ -11,7 +11,6 @@ dependencies:
     - field.field.commerce_product.default.field_prod_category
     - field.field.commerce_product.default.field_specifications
   module:
-    - commerce_product
     - entity_reference_revisions
     - image
     - text
@@ -27,7 +26,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_amount:
     type: number_integer
@@ -80,15 +79,15 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: -5
+    weight: 0
     region: content
   variations:
-    type: commerce_add_to_cart
+    type: entity_reference_label
     label: above
     settings:
-      combine: true
+      link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 7
     region: content
 hidden:
   created: true

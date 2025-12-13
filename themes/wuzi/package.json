@@ -2,9 +2,17 @@
   "name": "wuzi",
   "private": true,
   "scripts": {
-    "livereload": "livereload --exclusions node_modules/ --exts 'css,js,twig,theme,apng,avif,gif,jpg,jpeg,jfif,pjpeg,pjp,png,svg,webp'"
+    "livereload": "livereload --exclusions node_modules/ --exts 'css,js,twig,theme,apng,avif,gif,jpg,jpeg,jfif,pjpeg,pjp,png,svg,webp'",
+    "scss": "sass scss/style.scss css/style.css --watch"
   },
   "devDependencies": {
-    "livereload": "^0.9.3"
-  }
+    "livereload": "^0.9.3",
+    "sass": "^1.96.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

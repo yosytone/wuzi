@@ -66,6 +66,7 @@ module:
   tour: 0
   update: 0
   user: 0
+  views_load_more: 0
   views_ui: 0
   visitors: 0
   visitors_geoip: 0

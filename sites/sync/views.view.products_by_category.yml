@@ -7,6 +7,7 @@ dependencies:
     - taxonomy.vocabulary.product_categories
   module:
     - commerce_product
+    - views_load_more
 id: products_by_category
 label: 'Products by Category'
 module: views
@@ -88,16 +89,13 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: mini
+        type: load_more
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 10
+          items_per_page: 6
           total_pages: null
           id: 0
-          tags:
-            next: ››
-            previous: ‹‹
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -106,6 +104,14 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          more_button_text: 'Load more'
+          end_text: ''
+          advanced:
+            content_selector: ''
+            pager_selector: ''
+          effects:
+            type: fadeIn
+            speed: slow
       exposed_form:
         type: basic
         options:
@@ -122,7 +128,20 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: vxcvxcvxcv
+            format: basic_html
+          tokenize: false
       sorts: {  }
       arguments:
         field_prod_category_target_id:
@@ -192,6 +211,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      use_ajax: true
       header: {  }
       footer: {  }
       display_extenders: {  }

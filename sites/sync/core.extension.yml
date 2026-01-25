@@ -28,12 +28,20 @@ module:
   dc_ajax_add_cart: 0
   dc_ajax_add_cart_popup: 0
   dc_ajax_add_cart_views: 0
+  default_content: 0
   devel: 0
   devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
   entity: 0
   entity_reference_revisions: 0
+  facets: 0
+  facets_exposed_filters: 0
+  facets_range_dropdowns: 0
+  facets_range_widget: 0
+  facets_rest: 0
+  facets_searchbox_widget: 0
+  facets_summary: 0
   field: 0
   field_ui: 0
   file: 0
@@ -43,6 +51,9 @@ module:
   history: 0
   image: 0
   inline_entity_form: 0
+  jquery_ui: 0
+  jquery_ui_slider: 0
+  jquery_ui_touch_punch: 0
   link: 0
   media: 0
   media_library: 0
@@ -56,7 +67,11 @@ module:
   path: 0
   path_alias: 0
   profile: 0
+  rest: 0
   search: 0
+  search_api: 0
+  search_api_db: 0
+  serialization: 0
   shortcut: 0
   state_machine: 0
   system: 0
@@ -67,6 +82,7 @@ module:
   tour: 0
   update: 0
   user: 0
+  views_ajax_history: 0
   views_load_more: 0
   views_ui: 0
   visitors: 0

@@ -1,0 +1,45 @@
+uuid: 0ebddbe6-6b9b-41b4-8e6d-65ea5ac30519
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.server.default
+  module:
+    - commerce_product
+id: products
+name: Products
+description: ''
+read_only: false
+field_settings:
+  number_1:
+    label: 'Price » Number'
+    datasource_id: 'entity:commerce_product_variation'
+    property_path: 'price:number'
+    type: decimal
+    dependencies:
+      module:
+        - commerce_product
+datasource_settings:
+  'entity:commerce_product_variation':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  delete_on_fail: true
+  index_directly: true
+  track_changes_in_references: true
+server: default

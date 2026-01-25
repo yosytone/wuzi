@@ -1,0 +1,26 @@
+.view-filters {
+    display: none;
+}
+
+.sort-buttons {
+    padding-bottom: 20px;
+}
+.sort-buttons button {
+  background: none;
+  border: 1px solid #e0e0e0;
+  padding: 6px 12px;
+  margin-right: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #000;
+}
+.sort-buttons button.active-sort {
+  background-color: #fae0e0;
+  border-color: #c10000;
+  font-weight: bold;
+  color: #000;
+}
+.sort-arrow {
+  font-size: 14px;
+  color: #555;
+}

@@ -3,6 +3,9 @@
 /vendor/
 /core/
 /modules/contrib/
+/theme/*/node_modules
+/theme/*/scss/.sass-cache
+/theme/wuzi/node_modules
 
 /profiles/contrib/
 /libraries/

@@ -1,0 +1,20 @@
+uuid: f2413dda-d761-40e9-ae1b-04033514b03a
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - taxonomy
+id: commerce_product_variation.field_product_material
+field_name: field_product_material
+entity_type: commerce_product_variation
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,6 +1,6 @@
 uuid: 0d6eba16-88bc-47b6-b25a-ed85beb5c4fb
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - facets.facet.price_number

@@ -16,6 +16,7 @@ dependencies:
     - image
     - paragraphs
     - path
+    - shs
     - text
 _core:
   default_config_hash: bVqhDE0CBvUi4RPHqKu4sBhUOUwOTgcHVhn5PkfngLU
@@ -64,14 +65,14 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_prod_category:
-    type: entity_reference_autocomplete
+    type: options_shs
     weight: 7
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
     third_party_settings: {  }
   field_specifications:
     type: paragraphs

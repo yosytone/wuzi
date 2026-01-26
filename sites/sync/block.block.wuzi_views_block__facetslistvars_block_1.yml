@@ -1,0 +1,24 @@
+uuid: e12183fa-7d45-4f5c-8717-95c644bbe92f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.facetslistvars
+  module:
+    - views
+  theme:
+    - wuzi
+id: wuzi_views_block__facetslistvars_block_1
+theme: wuzi
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:facetslistvars-block_1'
+settings:
+  id: 'views_block:facetslistvars-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

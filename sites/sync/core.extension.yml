@@ -42,6 +42,7 @@ module:
   facets_rest: 0
   facets_searchbox_widget: 0
   facets_summary: 0
+  facets_taxonomy_multilevel: 0
   field: 0
   field_ui: 0
   file: 0
@@ -73,6 +74,7 @@ module:
   search_api_db: 0
   serialization: 0
   shortcut: 0
+  shs: 0
   state_machine: 0
   system: 0
   taxonomy: 0

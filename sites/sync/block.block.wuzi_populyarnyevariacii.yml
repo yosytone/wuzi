@@ -11,7 +11,7 @@ dependencies:
     - wuzi
 id: wuzi_populyarnyevariacii
 theme: wuzi
-region: content
+region: hidden_blocks
 weight: 0
 provider: null
 plugin: 'block_content:970a4f66-59ea-46b9-8606-745c50ebd134'

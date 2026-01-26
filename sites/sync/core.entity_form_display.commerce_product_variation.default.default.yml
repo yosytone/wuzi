@@ -5,7 +5,16 @@ dependencies:
   config:
     - commerce_product.commerce_product_variation_type.default
     - field.field.commerce_product_variation.default.field_about_variation
+    - field.field.commerce_product_variation.default.field_artikul
+    - field.field.commerce_product_variation.default.field_code
+    - field.field.commerce_product_variation.default.field_diameter
     - field.field.commerce_product_variation.default.field_image
+    - field.field.commerce_product_variation.default.field_length
+    - field.field.commerce_product_variation.default.field_product_colour
+    - field.field.commerce_product_variation.default.field_product_material
+    - field.field.commerce_product_variation.default.field_units
+    - field.field.commerce_product_variation.default.field_upakmarket_image_url
+    - field.field.commerce_product_variation.default.field_width
     - image.style.thumbnail
   module:
     - commerce_price
@@ -25,6 +34,29 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_artikul:
+    type: string_textfield
+    weight: 13
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_code:
+    type: string_textfield
+    weight: 15
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_diameter:
+    type: number
+    weight: 20
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_image:
     type: image_image
     weight: 11
@@ -32,6 +64,55 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_length:
+    type: number
+    weight: 17
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_product_colour:
+    type: entity_reference_autocomplete
+    weight: 19
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_product_material:
+    type: entity_reference_autocomplete
+    weight: 18
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_units:
+    type: number
+    weight: 14
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_upakmarket_image_url:
+    type: string_textarea
+    weight: 21
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_width:
+    type: number
+    weight: 16
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   list_price:
     type: commerce_list_price

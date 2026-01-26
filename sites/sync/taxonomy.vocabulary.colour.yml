@@ -1,0 +1,9 @@
+uuid: b52e0993-5a36-477b-9f33-f995c00b6809
+langcode: en
+status: true
+dependencies: {  }
+name: Цвет
+vid: colour
+description: null
+weight: 0
+new_revision: false

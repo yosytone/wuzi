@@ -1,0 +1,23 @@
+uuid: 40088c6b-7097-42c8-bb84-9f73d857cdee
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_variation_type.default
+    - field.storage.commerce_product_variation.field_units
+id: commerce_product_variation.default.field_units
+field_name: field_units
+entity_type: commerce_product_variation
+bundle: default
+label: 'Штук в упаковке'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

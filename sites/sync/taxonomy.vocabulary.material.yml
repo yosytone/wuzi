@@ -1,0 +1,9 @@
+uuid: 5c686697-459d-4a2b-97ed-81b0b8efea89
+langcode: en
+status: true
+dependencies: {  }
+name: Материал
+vid: material
+description: null
+weight: 0
+new_revision: false

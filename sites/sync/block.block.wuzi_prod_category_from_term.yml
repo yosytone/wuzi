@@ -1,0 +1,29 @@
+uuid: e604b397-640e-494b-9a40-c9f954415651
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.prod_category_from_term
+  module:
+    - facets
+    - system
+  theme:
+    - wuzi
+id: wuzi_prod_category_from_term
+theme: wuzi
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:prod_category_from_term'
+settings:
+  id: 'facet_block:prod_category_from_term'
+  label: prod_category_from_term
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: wuzi_prod_category_from_term
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/taxonomy/term/*'

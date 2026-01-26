@@ -6,6 +6,7 @@ dependencies:
     - facets.facet.prod_category
   module:
     - facets
+    - system
   theme:
     - wuzi
 id: wuzi_prod_category
@@ -21,4 +22,8 @@ settings:
   provider: facets
   context_mapping: {  }
   block_id: wuzi_prod_category
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

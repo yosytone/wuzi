@@ -12,6 +12,7 @@ dependencies:
     - field.field.commerce_product_variation.default.field_length
     - field.field.commerce_product_variation.default.field_product_colour
     - field.field.commerce_product_variation.default.field_product_material
+    - field.field.commerce_product_variation.default.field_size
     - field.field.commerce_product_variation.default.field_units
     - field.field.commerce_product_variation.default.field_upakmarket_image_url
     - field.field.commerce_product_variation.default.field_width
@@ -91,6 +92,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 10
+    region: content
+  field_size:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 14
     region: content
   field_units:
     type: number_integer

@@ -12,6 +12,7 @@ dependencies:
     - field.field.commerce_product_variation.default.field_length
     - field.field.commerce_product_variation.default.field_product_colour
     - field.field.commerce_product_variation.default.field_product_material
+    - field.field.commerce_product_variation.default.field_size
     - field.field.commerce_product_variation.default.field_units
     - field.field.commerce_product_variation.default.field_upakmarket_image_url
     - field.field.commerce_product_variation.default.field_width
@@ -89,6 +90,14 @@ content:
     settings:
       match_operator: CONTAINS
       match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_size:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }

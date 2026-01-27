@@ -1,27 +1,27 @@
-uuid: e12183fa-7d45-4f5c-8717-95c644bbe92f
+uuid: 09be4192-b08d-44a9-a5a5-7cbe75a5d069
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.facetslistvars
+    - views.view.products_list_variations
   module:
     - system
     - views
   theme:
     - wuzi
-id: wuzi_views_block__facetslistvars_block_1
+id: wuzi_views_block__products_list_variations_block_1
 theme: wuzi
-region: hidden_blocks
+region: content
 weight: 0
 provider: null
-plugin: 'views_block:facetslistvars-block_1'
+plugin: 'views_block:products_list_variations-block_1'
 settings:
-  id: 'views_block:facetslistvars-block_1'
+  id: 'views_block:products_list_variations-block_1'
   label: ''
   label_display: visible
   provider: views
   views_label: ''
-  items_per_page: none
+  items_per_page: '10'
 visibility:
   request_path:
     id: request_path

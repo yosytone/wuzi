@@ -9,7 +9,7 @@ id: commerce_product_variation.default.field_diameter
 field_name: field_diameter
 entity_type: commerce_product_variation
 bundle: default
-label: диаметр
+label: Диаметр
 description: ''
 required: false
 translatable: false

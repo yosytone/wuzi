@@ -71,7 +71,7 @@ processor_configs:
     weights:
       build: 40
     settings:
-      level: '2'
+      level: '3'
       bundle: product_categories
   url_processor_handler:
     processor_id: url_processor_handler

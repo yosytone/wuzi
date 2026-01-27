@@ -18,9 +18,9 @@ settings:
   label_display: visible
   provider: hierarchical_taxonomy_menu
   vocabulary: product_categories|
-  max_depth: 100
+  max_depth: 1
   dynamic_block_title: false
-  collapsible: false
+  collapsible: true
   stay_open: false
   interactive_parent: false
   hide_block: false

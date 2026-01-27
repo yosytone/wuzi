@@ -17,7 +17,7 @@ provider: null
 plugin: 'facet_block:prod_category_from_term'
 settings:
   id: 'facet_block:prod_category_from_term'
-  label: prod_category_from_term
+  label: 'Тип товара'
   label_display: visible
   provider: facets
   context_mapping: {  }

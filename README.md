@@ -1,9 +1,10 @@
 заменить код в modules/contrib/facets/modules/facets_range_widget/src/Plugin/facets/processor/SliderProcessor.php
 ````
- public function postQuery(FacetInterface $facet) {
+public function postQuery(FacetInterface $facet) {
       $widget = $facet->getWidgetInstance();
       $config = $widget->getConfiguration();
       $step = (float) ($config['step'] ?: 1);
+      $max_steps = 1000; // Максимально допустимое число шагов
 
       // Защита от некорректного шага
       if ($step <= 0) {
@@ -28,7 +29,6 @@
               }
           }
 
-          // Если нет результатов — ничего не делаем (или можно установить дефолты)
           if ($real_min === null || $real_max === null) {
               $facet->setResults([]);
               return;
@@ -37,23 +37,68 @@
           $min = $real_min;
           $max = $real_max;
 
-          // Опционально: расширить max до кратного шагу, чтобы покрыть весь диапазон
-          // (это улучшает UX, особенно если step > 1)
+          // Расширяем max до кратного шагу (только если step разумный)
           $remainder = fmod($max - $min, $step);
           if ($remainder > 0) {
               $max += $step - $remainder;
           }
       }
 
-      // Генерируем равномерную сетку от min до max с шагом step
+      // Проверяем, не превышает ли количество шагов лимит
+      $range = $max - $min;
+      if ($range < 0) {
+          $facet->setResults([]);
+          return;
+      }
+
+      $estimated_steps = $range / $step;
+      if ($estimated_steps > $max_steps) {
+          // Автоматически увеличиваем шаг, чтобы уложиться в лимит
+          $step = $range / $max_steps;
+          // Округляем шаг "вверх" до удобочитаемого значения (опционально, но рекомендуется)
+          // Простой способ: округлить до ближайшей "красивой" величины
+          $step = $this->roundStep($step);
+          // После изменения шага — пересчитываем max, чтобы он был кратен новому шагу
+          $remainder = fmod($range, $step);
+          if ($remainder > 0) {
+              $max = $min + $step * ceil($range / $step);
+          }
+      }
+
+      // Генерируем сетку
       $new_results = [];
       for ($value = $min; $value <= $max; $value += $step) {
-          // Округляем для стабильности float
           $rounded_value = round($value, 10);
           $new_results[] = new Result($facet, (float) $rounded_value, (float) $rounded_value, 0);
       }
 
       $facet->setResults($new_results);
+  }
+
+  /**
+   * Вспомогательный метод: округляет шаг до "удобочитаемого" значения.
+   * Например: 37 → 50, 123 → 200, 0.43 → 0.5, 0.017 → 0.02
+   */
+  protected function roundStep(float $step): float {
+      if ($step <= 0) {
+          return 1.0;
+      }
+
+      $log = floor(log10($step));
+      $normalized = $step / pow(10, $log);
+
+      // Округляем до ближайшего из [1, 2, 5, 10]
+      if ($normalized <= 1.5) {
+          $rounded_normalized = 1;
+      } elseif ($normalized <= 3.5) {
+          $rounded_normalized = 2;
+      } elseif ($normalized <= 7.5) {
+          $rounded_normalized = 5;
+      } else {
+          $rounded_normalized = 10;
+      }
+
+      return $rounded_normalized * pow(10, $log);
   }
 ````
 

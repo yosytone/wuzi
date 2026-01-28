@@ -13,7 +13,11 @@ $response = $kernel->handle($request);
 $kernel->terminate($request, $response);
 
 $vocabulary = 'product_categories';
-
+// Словари для ссылочных полей
+$vocabularies = [
+  'Материал' => 'material',
+  'Цвет' => 'colour',
+];
 
 function delete_all_products() {
   // Удаляем все продукты
@@ -52,23 +56,30 @@ function delete_all_terms($voc) {
 }
 
 function getOrCreateTerm($vocabulary, $name, $parent_id = 0) {
+  // Ищем термин по имени и словарю (родитель не обязателен при поиске)
   $terms = \Drupal::entityTypeManager()
     ->getStorage('taxonomy_term')
     ->loadByProperties([
       'vid' => $vocabulary,
       'name' => $name,
-      'parent' => $parent_id,
     ]);
 
   if (!empty($terms)) {
     return reset($terms);
   }
 
-  $term = Term::create([
+  // Создаём новый термин
+  $term_data = [
     'vid' => $vocabulary,
     'name' => $name,
-    'parent' => $parent_id,
-  ]);
+  ];
+
+  // Добавляем parent только если он задан и не 0
+  if ($parent_id > 0) {
+    $term_data['parent'] = $parent_id;
+  }
+
+  $term = Term::create($term_data);
   $term->save();
   return $term;
 }

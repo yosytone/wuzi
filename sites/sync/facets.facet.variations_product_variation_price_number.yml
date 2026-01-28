@@ -36,7 +36,7 @@ widget:
     min_value: 0.0
     max_type: search_result
     max_value: 10.0
-    step: 1.0
+    step: 0.01
 empty_behavior:
   behavior: none
 only_visible_when_facet_source_is_visible: false

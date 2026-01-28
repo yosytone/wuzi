@@ -1,0 +1,10 @@
+services:
+  image_downloader.service:
+    class: 'Drupal\image_downloader\Service\ImageDownloader'
+    arguments: ['@http_client', '@file_system']
+
+  image_downloader.generate_image:
+    class: Drupal\image_downloader\Service\ImageArticleGenerator
+    arguments: ['@url_generator']
+    parameters:
+      image_downloader.someParameter: ""

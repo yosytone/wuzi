@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function image_downloader_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.image_downloader':
+      return '<p>' . t('Download images from URLs and save them to the file system.') . '</p>';
+  }
+}

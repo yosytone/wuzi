@@ -1,0 +1,7 @@
+image_downloader.download_image_form:
+  path: '/admin/config/media/download-image'
+  defaults:
+    _form: '\Drupal\image_downloader\Form\DownloadImageForm'
+    _title: 'Download Image'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,24 @@
+uuid: 69b1e184-11c2-4fc4-bb1a-23549a1bcddc
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.prod_category
+  module:
+    - facets
+  theme:
+    - wuzi
+id: wuzi_prod_category
+theme: wuzi
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:prod_category'
+settings:
+  id: 'facet_block:prod_category'
+  label: prod_category
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: wuzi_prod_category
+visibility: {  }

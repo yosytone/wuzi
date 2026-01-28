@@ -1,3 +1,64 @@
+заменить код в modules/contrib/facets/modules/facets_range_widget/src/Plugin/facets/processor/SliderProcessor.php
+````
+ public function postQuery(FacetInterface $facet) {
+      $widget = $facet->getWidgetInstance();
+      $config = $widget->getConfiguration();
+      $step = (float) ($config['step'] ?: 1);
+
+      // Защита от некорректного шага
+      if ($step <= 0) {
+          $step = 1.0;
+      }
+
+      if ($config['min_type'] == 'fixed') {
+          $min = (float) $config['min_value'];
+          $max = (float) $config['max_value'];
+      } else {
+          // Определяем min и max из реальных результатов
+          $real_min = null;
+          $real_max = null;
+
+          foreach ($facet->getResults() as $result) {
+              $value = (float) $result->getRawValue();
+              if ($real_min === null || $value < $real_min) {
+                  $real_min = $value;
+              }
+              if ($real_max === null || $value > $real_max) {
+                  $real_max = $value;
+              }
+          }
+
+          // Если нет результатов — ничего не делаем (или можно установить дефолты)
+          if ($real_min === null || $real_max === null) {
+              $facet->setResults([]);
+              return;
+          }
+
+          $min = $real_min;
+          $max = $real_max;
+
+          // Опционально: расширить max до кратного шагу, чтобы покрыть весь диапазон
+          // (это улучшает UX, особенно если step > 1)
+          $remainder = fmod($max - $min, $step);
+          if ($remainder > 0) {
+              $max += $step - $remainder;
+          }
+      }
+
+      // Генерируем равномерную сетку от min до max с шагом step
+      $new_results = [];
+      for ($value = $min; $value <= $max; $value += $step) {
+          // Округляем для стабильности float
+          $rounded_value = round($value, 10);
+          $new_results[] = new Result($facet, (float) $rounded_value, (float) $rounded_value, 0);
+      }
+
+      $facet->setResults($new_results);
+  }
+````
+
+
+
 <img alt="Drupal Logo" src="https://www.drupal.org/files/Wordmark_blue_RGB.png" height="60px">
 
 Drupal is an open source content management platform supporting a variety of

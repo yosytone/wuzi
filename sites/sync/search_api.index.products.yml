@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.commerce_product.field_prod_category
+    - field.storage.commerce_product_variation.field_length
     - search_api.server.default
   module:
     - commerce_product
@@ -19,6 +20,16 @@ field_settings:
     property_path: created
     type: date
     dependencies:
+      module:
+        - commerce_product
+  field_length:
+    label: 'Variations » Product variation » Длина'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'variations:entity:field_length'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product_variation.field_length
       module:
         - commerce_product
   field_prod_category:
@@ -39,10 +50,10 @@ field_settings:
         - field.storage.commerce_product.field_prod_category
       module:
         - taxonomy
-  number_1:
-    label: 'Price » Number'
-    datasource_id: 'entity:commerce_product_variation'
-    property_path: 'price:number'
+  number:
+    label: 'Variations » Product variation » Price » Number'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'variations:entity:price:number'
     type: decimal
     dependencies:
       module:
@@ -72,6 +83,8 @@ processor_settings:
       preprocess_index: -45
     fields:
       field_prod_category: taxonomy_term-parent
+      field_product_colour: taxonomy_term-parent
+      field_product_material: taxonomy_term-parent
   language_with_fallback: {  }
   rendered_item: {  }
 tracker_settings:

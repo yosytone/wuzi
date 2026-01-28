@@ -1,0 +1,24 @@
+uuid: e0349f00-97dd-48c8-998e-3d08919add54
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.variations_product_variation_dlina
+  module:
+    - facets
+  theme:
+    - wuzi
+id: wuzi_variationsproductvariationdlina
+theme: wuzi
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:variations_product_variation_dlina'
+settings:
+  id: 'facet_block:variations_product_variation_dlina'
+  label: 'Variations » Product variation » Длина'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: wuzi_variationsproductvariationdlina
+visibility: {  }

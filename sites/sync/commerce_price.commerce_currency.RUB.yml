@@ -1,0 +1,9 @@
+uuid: 555e228a-3889-4852-8eca-9afc5ae482ad
+langcode: en
+status: true
+dependencies: {  }
+currencyCode: RUB
+name: 'Russian Ruble'
+numericCode: '643'
+symbol: RUB
+fractionDigits: 2

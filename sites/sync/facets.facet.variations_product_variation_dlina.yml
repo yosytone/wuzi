@@ -1,21 +1,21 @@
-uuid: 4f2ef79c-4204-4b09-bf89-8b9c7b6515de
+uuid: d3053312-df38-47c7-8503-156d5bace79c
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.products
-    - views.view.facetslistvars
+    - views.view.facetslistvarsterm
   module:
     - search_api
-id: price_number_block
-name: Price_Number_Block
+id: variations_product_variation_dlina
+name: 'Variations » Product variation » Длина'
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: price_number_block
-facet_source_id: 'search_api:views_block__facetslistvars__block_1'
-field_identifier: number_1
+url_alias: variations_product_variation_dlina
+facet_source_id: 'search_api:views_page__facetslistvarsterm__page_1'
+field_identifier: field_length
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -29,7 +29,7 @@ enable_parent_when_child_gets_disabled: true
 widget:
   type: range_slider
   config:
-    show_numbers: true
+    show_numbers: false
     prefix: ''
     suffix: ''
     min_type: search_result
@@ -39,28 +39,10 @@ widget:
     step: 1.0
 empty_behavior:
   behavior: none
-only_visible_when_facet_source_is_visible: true
+only_visible_when_facet_source_is_visible: false
 show_only_one_result: true
 show_title: false
 processor_configs:
-  active_widget_order:
-    processor_id: active_widget_order
-    weights:
-      sort: 20
-    settings:
-      sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: 30
-    settings:
-      sort: DESC
-  display_value_widget_order:
-    processor_id: display_value_widget_order
-    weights:
-      sort: 40
-    settings:
-      sort: ASC
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:

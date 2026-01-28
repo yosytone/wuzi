@@ -48,6 +48,13 @@ processor_configs:
     weights:
       build: 100
     settings: {  }
+  term_depth:
+    processor_id: term_depth
+    weights:
+      build: 40
+    settings:
+      level: '3'
+      bundle: product_categories
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

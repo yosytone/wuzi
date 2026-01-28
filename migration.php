@@ -133,6 +133,8 @@ $fieldMap = [
   'Размер' => 'field_size',
 ];
 
+$image_downloader_service = \Drupal::service('image_downloader.service');
+
 foreach ($productsData as $index => $item) {
   //if ($index > 3) break;
 
@@ -164,9 +166,22 @@ foreach ($productsData as $index => $item) {
       'number' => $item['price'],
       'currency_code' => 'RUB',
     ],
-    'field_upakmarket_image_url' => $item['image'] ?? '',
+    //'field_upakmarket_image_url' => $item['image'] ?? '',
     'field_artikul' => $item['chars']['Код товара'] ?? '',
   ];
+
+  $imageUrl = trim($item['image'] ?? '');
+  if (!empty($imageUrl)) {
+    echo "  → Скачивание изображения...\n";
+    var_dump($imageUrl);
+    $file = $image_downloader_service->downloadImagetoDir($imageUrl, 'imported_products');
+    if ($file) {
+      $variationData['field_image'] = $file;
+
+    } else {
+      echo "  Не удалось скачать изображение: $imageUrl\n";
+    }
+  }
 
   foreach ($fieldMap as $label => $fieldName) {
     if (!isset($charsMap[$label])) continue;
@@ -213,4 +228,3 @@ foreach ($productsData as $index => $item) {
 
   var_dump($charsMap);
 }
-

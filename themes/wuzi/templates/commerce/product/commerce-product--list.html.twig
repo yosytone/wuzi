@@ -21,7 +21,42 @@
  
 #}
 
+{#
+"product" => array:19 [▼
+"field_image" => array:2 [▶]
+"variation_title" => array:20 [▶]
+"title" => array:18 [▶]
+"variation_field_image" => array:20 [▶]
+"field_amount" => array:2 [▶]
+"variation_field_about_variation" => array:6 [▶]
+"variations" => array:18 [▶]
+"variation_list_price" => array:6 [▶]
+"variation_price" => array:20 [▶]
+"variation_field_artikul" => array:6 [▶]
+"variation_field_units" => array:20 [▶]
+"variation_field_code" => array:20 [▶]
+"variation_field_width" => array:20 [▶]
+"variation_field_length" => array:20 [▶]
+"variation_field_product_material" => array:20 [▶]
+"variation_field_product_colour" => array:20 [▶]
+"variation_field_diameter" => array:6 [▶]
+"variation_field_upakmarket_image_url" => array:6 [▶]
+"variation_field_size" => array:6 [▶]
+#}
+
 <article {{ attributes }}>
-  <div class="product-image-field">{{ product.field_image }}</div>
-  {{ product.title }}
+  <div class="product-image-field">{{ product.variation_field_image ?? '' }}</div>
+
+  {{ product.title ?? '' }}
+  {{ product.variations }}
+
+  {#
+  {% for key, value in product %}
+    {% if key starts with 'variation_field_' %}
+      <div class="variation-field variation-field--{{ key }}">
+        {{ value }}
+      </div>
+    {% endif %}
+  {% endfor %}
+  #}
 </article>

@@ -1,3 +1,9 @@
+````
+/web/themes/kart/css$ sass style.scss style.css
+web/themes/wuzi/scss$ sass style.scss ../css/style.css
+````
+
+
 заменить код в modules/contrib/facets/modules/facets_range_widget/src/Plugin/facets/processor/SliderProcessor.php
 ````
 public function postQuery(FacetInterface $facet) {

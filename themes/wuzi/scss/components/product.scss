@@ -1,6 +1,6 @@
 /* Product image */
 .product .field-label {
-  display: none;
+  //display: none;
 }
 
 @media (min-width: 768px) {
@@ -14,6 +14,17 @@
 
   .product .field-type-image img {
     max-height: unset;
+  }
+}
+
+.field__teaser {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .field-label {
+    flex-shrink: 0; // не сжимать метку
+    white-space: nowrap;
   }
 }
 
@@ -60,7 +71,7 @@
 
 /* Название товара */
 .product .field-name-title {
-  font-size: 1.125rem;
+  //font-size: 0.8rem;
   font-weight: 600;
   margin: 8px 0;
   line-height: 1.4;
@@ -72,6 +83,15 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: #222;
+}
+
+.product .field-name-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
 }
 
 /* Скрыть технические поля (если нужно) */

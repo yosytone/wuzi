@@ -38,8 +38,8 @@
 }
 @media (max-width: 1023px) {
   .primary-menu-wrapper {
-    width: 90%;
-    max-width: 320px;
+    width: 100%;
+    //max-width: 320px;
     height: 100%;
     overflow-y: auto;
   }
@@ -258,5 +258,27 @@
   .banner h3,
   .banner h4 {
     font-size: 1.3rem;
+  }
+}
+
+
+.region-sidebar-first, .region-sidebar-first-2, .region-sidebar-second {
+  @media (max-width: 1023px) {
+    display: none;
+
+  }
+}
+
+.mobile-vision {
+  .region-sidebar-first, .region-sidebar-first-2, .region-sidebar-second {
+    display: block;
+  }
+
+  .block-title {
+    color: var(--light-primary);
+  }
+
+  .sidebar a {
+    color: var(--light-primary);
   }
 }

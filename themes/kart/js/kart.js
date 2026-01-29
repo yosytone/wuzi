@@ -16,10 +16,14 @@ jQuery(document).ready(function ($) {
   $('.mobile-menu-icon').click(function () {
     $(this).toggleClass('menu-icon-active');
     $('.primary-menu-wrapper').toggleClass('active-menu');
+
+    $('body').addClass('no-scroll');
   });
   $('.close-mobile-menu').click(function () {
     $(this).closest('.primary-menu-wrapper').toggleClass('active-menu');
     $('.mobile-menu-icon').removeClass('menu-icon-active');
+
+    $('body').removeClass('no-scroll');
   });
   
   // Scroll To Top.

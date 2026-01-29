@@ -25,7 +25,7 @@
           {% if page.header %}
             {{ page.header }}
           {% endif %}
-          {% include '@kart/parts/header/user-menu.html.twig' %}
+          {# {% include '@kart/parts/header/user-menu.html.twig' %} #}
           {% if page.primary_menu %}
             <div class="mobile-menu-icon">
               <span></span>
@@ -44,6 +44,9 @@
         <div class="menu-wrap">
           <div class="close-mobile-menu" aria-label="close menu" ><i class="bi bi-x"></i></div>
           {{ page.primary_menu }}
+          <div class="mobile-vision">
+            {% include '@kart/parts/sidebar/sidebar-left.html.twig' %}
+          </div>
          </div>{# container #}
       </div>{# menu-wrap #}
     </div>{# container #}

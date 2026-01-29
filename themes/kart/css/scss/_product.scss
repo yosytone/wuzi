@@ -23,7 +23,10 @@
 .product {
   flex: 1 0 250px;
   background-color: var(--light-primary);
-  max-width: 350px;
+ 
+  @media (min-width: 481px) {
+    max-width: 350px;
+  }
   padding: 1rem;
   overflow: hidden;
 }

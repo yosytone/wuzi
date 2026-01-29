@@ -1,3 +1,13 @@
+.menu-wrap {
+  display: grid;
+  gap: 20px;
+}
+/* Блокировка прокрутки body */
+body.no-scroll {
+  overflow: hidden;
+  padding-right: calc(100vw - 100%);
+}
+
 /*--мобильный фильтр--*/
 
 .filter-container {
@@ -144,7 +154,7 @@
 
 .mobile-bottom-filter-close {
   position: absolute;
-  right: 30px;
+  right: 20px;
   top: 30px;
 }
 

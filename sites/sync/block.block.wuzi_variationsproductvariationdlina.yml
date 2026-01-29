@@ -11,7 +11,7 @@ dependencies:
 id: wuzi_variationsproductvariationdlina
 theme: wuzi
 region: sidebar_first
-weight: 0
+weight: -12
 provider: null
 plugin: 'facet_block:variations_product_variation_dlina'
 settings:

@@ -1,0 +1,24 @@
+uuid: e6b87537-a072-49c6-99a1-af90d1204e7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.variations_product_variation_shirina
+  module:
+    - facets
+  theme:
+    - wuzi
+id: wuzi_variationsproductvariationshirina
+theme: wuzi
+region: sidebar_first
+weight: -11
+provider: null
+plugin: 'facet_block:variations_product_variation_shirina'
+settings:
+  id: 'facet_block:variations_product_variation_shirina'
+  label: 'Variations » Product variation » Ширина'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: wuzi_variationsproductvariationshirina
+visibility: {  }

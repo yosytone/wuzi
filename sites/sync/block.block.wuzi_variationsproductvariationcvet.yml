@@ -1,0 +1,24 @@
+uuid: 08e3406d-9a04-4c07-9943-3730895d4358
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.variations_product_variation_cvet
+  module:
+    - facets
+  theme:
+    - wuzi
+id: wuzi_variationsproductvariationcvet
+theme: wuzi
+region: sidebar_first
+weight: -9
+provider: null
+plugin: 'facet_block:variations_product_variation_cvet'
+settings:
+  id: 'facet_block:variations_product_variation_cvet'
+  label: 'Variations » Product variation » Цвет'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: wuzi_variationsproductvariationcvet
+visibility: {  }

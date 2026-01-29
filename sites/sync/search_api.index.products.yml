@@ -5,6 +5,9 @@ dependencies:
   config:
     - field.storage.commerce_product.field_prod_category
     - field.storage.commerce_product_variation.field_length
+    - field.storage.commerce_product_variation.field_product_colour
+    - field.storage.commerce_product_variation.field_product_material
+    - field.storage.commerce_product_variation.field_width
     - search_api.server.default
   module:
     - commerce_product
@@ -40,6 +43,36 @@ field_settings:
     dependencies:
       config:
         - field.storage.commerce_product.field_prod_category
+  field_product_colour:
+    label: 'Variations » Product variation » Цвет'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'variations:entity:field_product_colour'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product_variation.field_product_colour
+      module:
+        - commerce_product
+  field_product_material:
+    label: 'Variations » Product variation » Материал'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'variations:entity:field_product_material'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product_variation.field_product_material
+      module:
+        - commerce_product
+  field_width:
+    label: 'Variations » Product variation » Ширина'
+    datasource_id: 'entity:commerce_product'
+    property_path: 'variations:entity:field_width'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.commerce_product_variation.field_width
+      module:
+        - commerce_product
   name:
     label: 'prod_category » Taxonomy term » Name'
     datasource_id: 'entity:commerce_product'
@@ -55,6 +88,14 @@ field_settings:
     datasource_id: 'entity:commerce_product'
     property_path: 'variations:entity:price:number'
     type: decimal
+    dependencies:
+      module:
+        - commerce_product
+  title:
+    label: Title
+    datasource_id: 'entity:commerce_product'
+    property_path: title
+    type: string
     dependencies:
       module:
         - commerce_product

@@ -2402,23 +2402,33 @@ hr.line-double {
     .filter-container {
       padding: 0; } }
 
-.mobile-bottom-filter-wrap,
-.mobile-bottom-sort-wrap-panel {
+.mobile-bottom-filter-wrap {
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   z-index: 100000000;
-  display: none; }
-
-.mobile-bottom-filter-wrap {
-  transition: background-color 0.3s ease;
+  /* Начальное состояние: невидимый, но занимает место */
+  opacity: 0;
+  visibility: hidden;
   background-color: rgba(0, 0, 0, 0);
-  /* начальное значение */ }
+  transition: opacity 0.3s ease, background-color 0.3s ease, visibility 0.3s; }
+  .mobile-bottom-filter-wrap .mobile-bottom-filter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    transition: top 0.3s ease; }
 
+/* Активное состояние */
 .mobile-bottom-filter-wrap.is-open {
+  opacity: 1;
+  visibility: visible;
   background-color: rgba(0, 0, 0, 0.7); }
+  .mobile-bottom-filter-wrap.is-open .mobile-bottom-filter {
+    top: 20%; }
 
 .mobile-bottom-sort-select-wrap {
   position: absolute;

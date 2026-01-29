@@ -6,6 +6,7 @@ dependencies:
     - facets.facet.variations_product_variation_cvet
   module:
     - facets
+    - system
   theme:
     - wuzi
 id: wuzi_variationsproductvariationcvet
@@ -16,9 +17,13 @@ provider: null
 plugin: 'facet_block:variations_product_variation_cvet'
 settings:
   id: 'facet_block:variations_product_variation_cvet'
-  label: 'Variations » Product variation » Цвет'
+  label: Цвет
   label_display: visible
   provider: facets
   context_mapping: {  }
   block_id: wuzi_variationsproductvariationcvet
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/taxonomy/term/*'

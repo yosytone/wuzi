@@ -6,6 +6,7 @@ dependencies:
     - facets.facet.variations_product_variation_price_number
   module:
     - facets
+    - system
   theme:
     - wuzi
 id: wuzi_variationsproductvariationpricenumber
@@ -16,9 +17,13 @@ provider: null
 plugin: 'facet_block:variations_product_variation_price_number'
 settings:
   id: 'facet_block:variations_product_variation_price_number'
-  label: 'Variations » Product variation » Price » Number'
+  label: Цена
   label_display: visible
   provider: facets
   context_mapping: {  }
   block_id: wuzi_variationsproductvariationpricenumber
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/taxonomy/term/*'

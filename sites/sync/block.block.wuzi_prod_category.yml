@@ -6,6 +6,7 @@ dependencies:
     - facets.facet.prod_category
   module:
     - facets
+    - system
   theme:
     - wuzi
 id: wuzi_prod_category
@@ -16,9 +17,13 @@ provider: null
 plugin: 'facet_block:prod_category'
 settings:
   id: 'facet_block:prod_category'
-  label: prod_category
+  label: 'Тип товара'
   label_display: visible
   provider: facets
   context_mapping: {  }
   block_id: wuzi_prod_category
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/taxonomy/term/*'

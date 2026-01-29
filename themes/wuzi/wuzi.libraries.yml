@@ -12,6 +12,7 @@ global:
   js:
     js/slick.js: {}
     js/kart.js: {}
+    js/wuzi.js: {}
   dependencies:
     - core/jquery
     - core/drupal

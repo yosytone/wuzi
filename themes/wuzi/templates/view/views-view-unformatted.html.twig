@@ -60,6 +60,8 @@ function updateSortArrows() {
 document.addEventListener('DOMContentLoaded', updateSortArrows);
 </script>
 
+<div class="mobile-bottom-filter-button js-mobile-filter-button">Фильтр</div>
+
 <div class="products">
   {% for row in rows %}
     <div class="product">{{ row.content }}</div>

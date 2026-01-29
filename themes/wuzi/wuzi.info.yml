@@ -22,6 +22,7 @@ regions:
   content_bottom: 'Content Bottom'
   content_home: 'Homepage Content'
   sidebar_first: 'Sidebar Left'
+  sidebar_first_2: 'Sidebar Left 2'
   sidebar_second: 'Sidebar Right'
   footer_top: 'Footer Top'
   footer: 'Footer'

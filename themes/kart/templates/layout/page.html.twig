@@ -33,6 +33,7 @@
 #}
 {% include '@kart/parts/header/header.html.twig' %}
 {% include '@kart/parts/highlighted.html.twig' %}
+{% include '@kart/parts/mobile/bottom-filter.html.twig' %}
 <div id="main-wrapper" class="main-wrapper">
   <div class="container">
     <div class="main-container">
@@ -49,7 +50,10 @@
           {% include '@kart/parts/content/content_bottom.html.twig' %}
         {% endif %}
       </main>
-      {% include '@kart/parts/sidebar/sidebar-left.html.twig' %}
+      <div>
+        {% include '@kart/parts/sidebar/sidebar-left.html.twig' %}
+        {% include '@kart/parts/sidebar/sidebar-left-2.html.twig' %}
+      </div>
       {% include '@kart/parts/sidebar/sidebar-right.html.twig' %}
     </div> {# /main-container #}
   </div> {# /container #}

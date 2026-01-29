@@ -144,6 +144,15 @@
   }
 }
 @media (min-width: 1024px) {
+
+  .header .menu {
+      display: flex;
+      list-style: none;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      gap: 1rem;
+  }
   /* page layout */
   .sidebar-left .main-container {
     grid-template-columns: 1fr 3fr;
@@ -162,6 +171,12 @@
   .close-mobile-menu,
   .mobile-menu-icon {
     display: none;
+  }
+  .mobile-vision {
+    display: none;
+    .menu {
+      display: block;
+    }
   }
   .primary-menu-wrapper {
     position: relative;

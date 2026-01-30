@@ -91,6 +91,7 @@ module:
   visitors: 0
   visitors_geoip: 0
   wuzi_blocks: 0
+  pathauto: 1
   views: 10
   paragraphs: 11
   standard: 1000

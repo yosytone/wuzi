@@ -1,0 +1,23 @@
+uuid: 845d7a7b-47db-4871-a868-c0a55a9ca63c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: autoname
+label: AutoName
+type: 'canonical_entities:node'
+pattern: '/[node:title]'
+selection_criteria:
+  a307deab-5400-45ad-a278-8332ca1edc92:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: a307deab-5400-45ad-a278-8332ca1edc92
+    context_mapping:
+      node: node
+    bundles:
+      article: article
+      page: page
+selection_logic: and
+weight: -5
+relationships: {  }

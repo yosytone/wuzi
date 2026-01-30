@@ -22,7 +22,7 @@ mode: list
 content:
   field_image:
     type: image
-    label: above
+    label: hidden
     settings:
       image_link: content
       image_style: ''
@@ -39,6 +39,15 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  variations:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser_card
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
   body: true
   created: true
@@ -46,6 +55,6 @@ hidden:
   field_color: true
   field_prod_category: true
   field_specifications: true
+  search_api_excerpt: true
   stores: true
   uid: true
-  variations: true

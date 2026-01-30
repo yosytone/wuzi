@@ -11,8 +11,8 @@ dependencies:
     - wuzi
 id: wuzi_variationsproductvariationshirina
 theme: wuzi
-region: sidebar_first
-weight: -11
+region: sidebar_first_2
+weight: -10
 provider: null
 plugin: 'facet_block:variations_product_variation_shirina'
 settings:

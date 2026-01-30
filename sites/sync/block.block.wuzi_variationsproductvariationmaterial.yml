@@ -11,8 +11,8 @@ dependencies:
     - wuzi
 id: wuzi_variationsproductvariationmaterial
 theme: wuzi
-region: sidebar_first
-weight: -10
+region: sidebar_first_2
+weight: -9
 provider: null
 plugin: 'facet_block:variations_product_variation_material'
 settings:

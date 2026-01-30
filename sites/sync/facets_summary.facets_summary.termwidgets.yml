@@ -1,0 +1,65 @@
+uuid: aa88ad7e-bcff-4f39-a628-1b12bbd8978d
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.prod_category
+    - facets.facet.variations_product_variation_cvet
+    - facets.facet.variations_product_variation_dlina
+    - facets.facet.variations_product_variation_material
+    - facets.facet.variations_product_variation_price_number
+    - facets.facet.variations_product_variation_shirina
+    - search_api.index.products
+    - views.view.facetslistvarsterm
+  module:
+    - search_api
+id: termwidgets
+name: TermWidgets
+facet_source_id: 'search_api:views_page__facetslistvarsterm__page_1'
+only_visible_when_facet_source_is_visible: false
+processor_configs:
+  show_text_when_empty:
+    processor_id: show_text_when_empty
+    weights:
+      build: '10'
+    settings:
+      text:
+        value: 'No results found.'
+        format: plain_text
+facets:
+  prod_category:
+    checked: true
+    label: prod_category
+    separator: ', '
+    show_count: false
+    weight: 0
+  variations_product_variation_cvet:
+    checked: true
+    label: 'Variations » Product variation » Цвет'
+    separator: ', '
+    show_count: false
+    weight: 0
+  variations_product_variation_dlina:
+    checked: true
+    label: 'Variations » Product variation » Длина'
+    separator: ', '
+    show_count: false
+    weight: 0
+  variations_product_variation_material:
+    checked: true
+    label: 'Variations » Product variation » Материал'
+    separator: ', '
+    show_count: false
+    weight: 0
+  variations_product_variation_price_number:
+    checked: true
+    label: 'Variations » Product variation » Price » Number'
+    separator: ', '
+    show_count: false
+    weight: 0
+  variations_product_variation_shirina:
+    checked: true
+    label: 'Variations » Product variation » Ширина'
+    separator: ', '
+    show_count: false
+    weight: 0

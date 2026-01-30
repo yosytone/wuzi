@@ -9,7 +9,7 @@ dependencies:
 id: wuzi_hierarchicaltaxonomymenu
 theme: wuzi
 region: sidebar_first
-weight: -7
+weight: -14
 provider: null
 plugin: hierarchical_taxonomy_menu
 settings:

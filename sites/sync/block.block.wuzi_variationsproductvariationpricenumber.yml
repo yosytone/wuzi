@@ -11,8 +11,8 @@ dependencies:
     - wuzi
 id: wuzi_variationsproductvariationpricenumber
 theme: wuzi
-region: sidebar_first
-weight: -13
+region: sidebar_first_2
+weight: -12
 provider: null
 plugin: 'facet_block:variations_product_variation_price_number'
 settings:

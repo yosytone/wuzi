@@ -17,3 +17,39 @@
     transition: background 0.3s ease;
     text-align: center;
 }
+
+.mobile-bottom-filter-button {
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: inline-flex;
+    background: none;
+    border: 1px solid #e0e0e0;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #000;
+    font-size: 14px;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+    align-items: center;
+    gap: 6px;
+
+    &:hover {
+      background-color: #f5f5f5;
+      border-color: #ccc;
+    }
+
+    &:active {
+      background-color: #eee;
+    }
+
+    &.is-open,
+    &.active {
+      background-color: #fae0e0;
+      border-color: #c10000;
+      font-weight: bold;
+      color: #000;
+    }
+  }
+}

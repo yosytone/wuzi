@@ -1,0 +1,20 @@
+uuid: 0196c2f5-9391-4a7a-be0f-6668ab0ac578
+langcode: en
+status: true
+dependencies:
+  module:
+    - wuzi_blocks
+  theme:
+    - wuzi
+id: wuzi_filtercatalog
+theme: wuzi
+region: content_top
+weight: 0
+provider: null
+plugin: wuzi_blocks_filter_catalog
+settings:
+  id: wuzi_blocks_filter_catalog
+  label: 'Filter Catalog'
+  label_display: '0'
+  provider: wuzi_blocks
+visibility: {  }

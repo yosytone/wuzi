@@ -16,8 +16,9 @@
   }
   @media (min-width: 1024px) {
     //color: var(--text-color);
-    background-color: var(--light-secondary);
-    padding: 1rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 24px;
     a {
       //color: var(--dark);
     }
@@ -47,11 +48,18 @@
 .sidebar li {
   position: relative;
   padding: 8px 0;
-  border-bottom: 1px solid var(--text-color-light);
+  //border-bottom: 1px solid var(--text-color-light);
 }
 .sidebar ul ul {
   padding-left: 0.5rem;
 }
 .sidebar li:last-child {
   border: 0;
+}
+
+.block-region.region-sidebar-first-2 {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

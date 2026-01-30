@@ -1,0 +1,11 @@
+uuid: e793d5be-1dfb-4fdd-806f-bccd67a84f9e
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: commerce_product_variation.teaser_card
+label: 'Teaser card'
+description: ''
+targetEntityType: commerce_product_variation
+cache: true

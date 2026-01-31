@@ -8,12 +8,11 @@ dependencies:
     - field.field.commerce_product.default.field_amount
     - field.field.commerce_product.default.field_color
     - field.field.commerce_product.default.field_image
+    - field.field.commerce_product.default.field_is_recommend
     - field.field.commerce_product.default.field_prod_category
+    - field.field.commerce_product.default.field_product_badges
     - field.field.commerce_product.default.field_specifications
-    - image.style.thumbnail
   module:
-    - commerce
-    - image
     - paragraphs
     - path
     - shs
@@ -27,7 +26,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 9
@@ -37,32 +36,16 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_amount:
-    type: number
-    weight: 8
+  field_is_recommend:
+    type: boolean_checkbox
+    weight: 2
     region: content
     settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_color:
-    type: string_textfield
-    weight: 9
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_image:
-    type: image_image
-    weight: 11
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      display_label: true
     third_party_settings: {  }
   field_prod_category:
     type: options_shs
@@ -74,9 +57,15 @@ content:
       create_new_levels: false
       force_deepest: false
     third_party_settings: {  }
+  field_product_badges:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_specifications:
     type: paragraphs
-    weight: 10
+    weight: 8
     region: content
     settings:
       title: Paragraph
@@ -94,30 +83,20 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
-  stores:
-    type: commerce_entity_select
-    weight: 0
-    region: content
-    settings:
-      hide_single_entity: true
-      autocomplete_threshold: 7
-      autocomplete_size: 60
-      autocomplete_placeholder: ''
-    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 1
+    weight: 0
     region: content
     settings:
       size: 60
@@ -125,7 +104,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -134,4 +113,8 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_amount: true
+  field_color: true
+  field_image: true
+  stores: true
   variations: true

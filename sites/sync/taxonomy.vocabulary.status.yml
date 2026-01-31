@@ -1,0 +1,9 @@
+uuid: a7eb7ae5-098c-4549-a607-c04d9d35b7d2
+langcode: en
+status: true
+dependencies: {  }
+name: Статус
+vid: status
+description: null
+weight: 0
+new_revision: false

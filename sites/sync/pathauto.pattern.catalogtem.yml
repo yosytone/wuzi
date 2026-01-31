@@ -1,0 +1,22 @@
+uuid: 8587aed5-207a-4d29-b03c-e6882ca54423
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: catalogtem
+label: CatalogTem
+type: 'canonical_entities:taxonomy_term'
+pattern: '/catalog/[term:name]'
+selection_criteria:
+  7f4d6478-8adc-46c2-8464-28226f53c4f1:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 7f4d6478-8adc-46c2-8464-28226f53c4f1
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      product_categories: product_categories
+selection_logic: and
+weight: -5
+relationships: {  }

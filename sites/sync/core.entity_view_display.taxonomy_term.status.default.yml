@@ -1,0 +1,33 @@
+uuid: 85a22fd5-df5b-4394-8e0d-e2b4589fef4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.status.field_color_field
+    - taxonomy.vocabulary.status
+  module:
+    - color_field
+    - text
+id: taxonomy_term.status.default
+targetEntityType: taxonomy_term
+bundle: status
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_color_field:
+    type: color_field_formatter_text
+    label: above
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

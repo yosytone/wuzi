@@ -669,6 +669,24 @@ display:
       tags:
         - 'config:search_api.index.products'
         - 'search_api_list:products'
+  attachment_1:
+    id: attachment_1
+    display_title: Attachment
+    display_plugin: attachment
+    position: 3
+    display_options:
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
+      tags:
+        - 'config:search_api.index.products'
+        - 'search_api_list:products'
   block_1:
     id: block_1
     display_title: Block

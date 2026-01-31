@@ -9,7 +9,9 @@ dependencies:
     - field.field.commerce_product.default.field_amount
     - field.field.commerce_product.default.field_color
     - field.field.commerce_product.default.field_image
+    - field.field.commerce_product.default.field_is_recommend
     - field.field.commerce_product.default.field_prod_category
+    - field.field.commerce_product.default.field_product_badges
     - field.field.commerce_product.default.field_specifications
   module:
     - entity_reference_revisions
@@ -92,6 +94,8 @@ content:
     region: content
 hidden:
   created: true
+  field_is_recommend: true
+  field_product_badges: true
   search_api_excerpt: true
   stores: true
   uid: true

@@ -1,18 +1,19 @@
-uuid: b71d77f6-fe9d-4aeb-bd60-fe78c8ed8122
+uuid: 1e29b623-9553-4665-8cda-196f6337168f
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.commerce_product.list
+    - commerce_product.commerce_product_type.default
   module:
+    - commerce
     - commerce_product
-id: products_list
-label: 'Products List'
+id: popular
+label: 'Популярные товары'
 module: views
 description: ''
 tag: ''
 base_table: commerce_product_field_data
-base_field: product_id
+base_field: nid
 display:
   default:
     id: default
@@ -20,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Products List'
+      title: 'Популярные товары'
       fields:
         title:
           id: title
@@ -136,17 +137,19 @@ display:
           group: 1
           expose:
             operator: ''
+        type:
+          id: type
+          table: commerce_product_field_data
+          field: type
+          entity_type: commerce_product
+          entity_field: type
+          plugin_id: commerce_entity_bundle
+          value:
+            default: default
       style:
         type: default
-        options:
-          row_class: ''
-          default_row_class: false
-          uses_fields: false
       row:
-        type: 'entity:commerce_product'
-        options:
-          relationship: none
-          view_mode: list
+        type: fields
       query:
         type: views_query
         options:
@@ -155,22 +158,9 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships:
-        variations_target_id:
-          id: variations_target_id
-          table: commerce_product__variations
-          field: variations_target_id
-          relationship: none
-          group_type: group
-          admin_label: 'Product variation'
-          entity_type: commerce_product
-          entity_field: variations
-          plugin_id: standard
-          required: false
-      css_class: ''
+      relationships: {  }
       header: {  }
       footer: {  }
-      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -204,9 +194,8 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      display_extenders:
-        ajax_history: {  }
-      path: char/%
+      display_extenders: {  }
+      path: '-'
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,0 +1,25 @@
+uuid: fd689297-dfb9-4b11-b6dd-bea650252b9d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - wuzi_blocks
+  theme:
+    - wuzi
+id: wuzi_similarproductsbycategory
+theme: wuzi
+region: content_bottom
+weight: 0
+provider: null
+plugin: similar_products_block
+settings:
+  id: similar_products_block
+  label: 'Товары из той же категории'
+  label_display: visible
+  provider: wuzi_blocks
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/product/*'

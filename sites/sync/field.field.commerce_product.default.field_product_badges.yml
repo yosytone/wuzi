@@ -1,18 +1,18 @@
-uuid: 4c56c2e6-78f6-4d34-b3f5-c217a04bfe77
+uuid: e2a71b11-61de-4d6f-befc-70a09c007ff6
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.default
-    - field.storage.commerce_product.field_prod_category
-    - taxonomy.vocabulary.product_categories
-id: commerce_product.default.field_prod_category
-field_name: field_prod_category
+    - field.storage.commerce_product.field_product_badges
+    - taxonomy.vocabulary.status
+id: commerce_product.default.field_product_badges
+field_name: field_product_badges
 entity_type: commerce_product
 bundle: default
-label: 'Категория товара'
-description: 'Категория товара'
-required: true
+label: 'Добавить статус'
+description: ''
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      product_categories: product_categories
+      status: status
     sort:
       field: name
       direction: asc

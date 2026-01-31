@@ -1,0 +1,25 @@
+uuid: 00807d7b-dc6c-4723-a67b-7e661016db88
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - wuzi_blocks
+  theme:
+    - wuzi
+id: wuzi_universaltermentities
+theme: wuzi
+region: content
+weight: 0
+provider: null
+plugin: universal_term_entities
+settings:
+  id: universal_term_entities
+  label: 'Universal Term Entities'
+  label_display: visible
+  provider: wuzi_blocks
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/char/*'

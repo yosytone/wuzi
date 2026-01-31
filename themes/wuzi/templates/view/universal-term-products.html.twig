@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Template for universal term products.
+ *
+ * Available variables:
+ * - products: List of product entities.
+ * - term: Current taxonomy term.
+ */
+#}
+
+<div class="products">
+  {% for product in rendered_products %}
+    <div class="product">
+      {{ product }}
+    </div>
+  {% endfor %}
+</div>

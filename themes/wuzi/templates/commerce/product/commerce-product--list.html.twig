@@ -44,19 +44,20 @@
 "variation_field_size" => array:6 [▶]
 #}
 
-<article {{ attributes }}>
-  <div class="product-image-field">{{ product.variation_field_image ?? '' }}</div>
+<article{{ attributes }}>
+  <div class="product-image-field">
+    {{ product.variation_field_image ?? '' }}
+
+    {% if promo_badge %}
+      <div 
+        class="product-promo-badge" 
+        {% if promo_badge_color %}style="background-color: {{ promo_badge_color }};"{% endif %}
+      >
+        {{ promo_badge }}
+      </div>
+    {% endif %}
+  </div>
 
   {{ product.title ?? '' }}
   {{ product.variations }}
-
-  {#
-  {% for key, value in product %}
-    {% if key starts with 'variation_field_' %}
-      <div class="variation-field variation-field--{{ key }}">
-        {{ value }}
-      </div>
-    {% endif %}
-  {% endfor %}
-  #}
 </article>

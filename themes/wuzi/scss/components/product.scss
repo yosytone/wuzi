@@ -118,3 +118,19 @@
   content: " руб./шт.";
   font-size: 0.8rem;
 }
+
+.product-details {
+  span {
+    font-weight: bold;
+  }
+
+  .field-name-price {
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .field-name-price::after {
+    content: " руб./шт.";
+    font-size: 1.5rem;
+  }
+}

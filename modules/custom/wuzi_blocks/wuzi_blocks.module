@@ -16,5 +16,8 @@ function wuzi_blocks_theme($existing, $type, $theme, $path) {
       'variables' => ['tree' => []],
       'template' => 'catalog-tree',
     ],
+    'universal_term_products' => [
+      'variables' => ['rendered_products' => [], 'term' => NULL],
+    ],
   ];
 }

@@ -46,3 +46,42 @@
   };
 
 })(Drupal, once, jQuery);
+
+((Drupal, once) => {
+  'use strict';
+
+  Drupal.behaviors.productMoreToggle = {
+    attach(context) {
+      once('product-more-init', '.js-product-more-toggle', context).forEach(toggle => {
+        const content = toggle.nextElementSibling;
+        if (!content || !content.classList.contains('js-product-more-content')) return;
+
+        // Устанавливаем начальное состояние
+        content.style.maxHeight = '0';
+
+        toggle.addEventListener('click', () => {
+          const isOpen = content.classList.contains('is-open');
+
+          if (isOpen) {
+            // Сворачиваем
+            content.style.maxHeight = '0';
+            content.classList.remove('is-open');
+            toggle.textContent = 'Подробнее';
+          } else {
+            // Раскрываем: измеряем реальную высоту
+            content.style.maxHeight = 'none';
+            const height = content.scrollHeight + 'px';
+            content.style.maxHeight = '0'; // сброс для анимации
+            // Принудительный reflow
+            void content.offsetHeight;
+            // Запуск анимации
+            content.style.maxHeight = height;
+            content.classList.add('is-open');
+            toggle.textContent = 'Скрыть';
+          }
+        });
+      });
+    }
+  };
+
+})(Drupal, once);

@@ -81,7 +81,7 @@
   margin: 0;
 }
 .region-hero .slick-dots {
-  bottom: 0.5rem;
+  bottom: -10px;
 }
 /* Highlighted */
 .region-highlighted {
@@ -93,4 +93,10 @@
 .region-highlighted .block:first-child,
 .region-highlighted .message:first-child {
   margin-top: 1.5rem;
+}
+
+.region-content {
+  .block {
+    margin-bottom: 1rem;
+  }
 }

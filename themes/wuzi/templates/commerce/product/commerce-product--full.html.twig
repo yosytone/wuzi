@@ -16,9 +16,34 @@
         <div class="product-main-image-nav">{{- product.field_image -}}</div>
       {% endif %}
     {% endif %}
+
+
+    {% if product.body %}
+      <span>Описание:</span>
+      <div class="product-description mb-40">{{ product.body }}</div>
+    {% endif %}
   </div>
   <div class="product-details">
-    <h1 class="product-title">{{- product.title -}}</h1>
-    <div class="product-fields">{{- product|without('field_image', 'variation_field_image') -}}</div>
+    <h1 class="product-title">{{ product.title }}</h1>
+
+    {% if product.variation_price %}
+      <div class="product-price mb-40">{{ product.variation_price }}</div>
+    {% endif %}
+
+    {% set extra_fields = product|without(
+      'title',
+      'field_image',
+      'variation_field_image',
+      'variation_price',
+      'variations',
+      'body'
+    ) %}
+
+    {% if extra_fields|length > 0 %}
+      <button type="button" class="product-more-toggle js-product-more-toggle">Подробнее о товаре</button>
+      <div class="product-more-content js-product-more-content">
+        {{ extra_fields }}
+      </div>
+    {% endif %}
   </div>
 </article>

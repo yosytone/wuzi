@@ -1,9 +1,33 @@
 .block-title {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .field-type-text-with-summary {
   padding: 1.5rem;
   background-color: #fff;
   border-radius: 24px;
+}
+
+.product-more-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.product-more-content.is-open {
+  opacity: 1;
+  /* max-height будет задан через JS */
+}
+
+button.product-more-toggle.js-product-more-toggle {
+  width: 100%;
+  background-color: #ffffff;
+  border: none;
+  color: var(--dark);
+}
+
+.product-more-content {
+    background-color: #fff;
+    padding: 30px;
 }

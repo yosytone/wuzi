@@ -3,7 +3,7 @@
 {# block--block-content--type--block-banner.html.twig #}
 {# _preprocess_block__block_content__type__block_list #}
 
-<div{{ attributes.addClass('block') }}>
+<div{{ attributes.addClass('block lazy-block') }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
@@ -48,6 +48,7 @@
               </div>
             </div>
 
+            {#
             <div class="slider-section slider-section-right">
               {% for banner in banners %}
                 <div class="banner">
@@ -75,6 +76,8 @@
                 </div>
               {% endfor %}
             </div>
+            #}
+
           </div>
         </div>
       </div>

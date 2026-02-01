@@ -1,17 +1,36 @@
-jQuery(function() {
-  // hero slider
-  jQuery('.slider').slick({
+jQuery(function($) {
+  $('.slider').on('init', function() {
+    // Показываем слайдер только после инициализации
+    $(this).fadeIn(); // или .show(), или убираем класс/стиль
+  }).slick({
     slidesToScroll: 1,
     autoplay: true,
     dots: true,
-    arrows: false,
+    arrows: false
   });
 });
 /* Load jQuery
 -----------------*/
 jQuery(document).ready(function ($) {
   // placeholder for search form
-  $('.header-search input[type="search"]').attr('placeholder', Drupal.t('search here ...'));
+  $('.header-search input[type="search"]').attr('placeholder', Drupal.t('поиск по названию товара ...'));
+
+  // Обрабатываем отправку формы
+  $('.header-search form').on('submit', function (e) {
+    e.preventDefault(); // отменяем стандартную отправку
+
+    const query = $(this).find('input[type="search"]').val().trim();
+    
+    if (query) {
+      // Кодируем запрос для URL
+      const url = '/search?search_api_fulltext=' + encodeURIComponent(query);
+      window.location.href = url;
+    } else {
+      // Если пустой запрос — можно перейти на /search или ничего не делать
+      window.location.href = '/search';
+    }
+  });
+  
   // Mobile menu.
   $('.mobile-menu-icon').click(function () {
     $(this).toggleClass('menu-icon-active');

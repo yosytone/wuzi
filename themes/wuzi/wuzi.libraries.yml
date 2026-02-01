@@ -37,3 +37,14 @@ theme-settings:
   css:
     theme:
       css/theme-settings.css: {}
+
+fancybox:
+  version: 3.x
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js: { type: external }
+    js/fancybox-init.js: {}
+  css:
+    theme:
+      https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css: { type: external }
+  dependencies:
+    - core/jquery

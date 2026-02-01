@@ -8,19 +8,41 @@
 
 <article{{ attributes.addClass(classes) }}>
   <div class="product-image">
+
+
     {% if product.variation_field_image|render is not empty %}
-      <div class="product-variation-image">{{- product.variation_field_image -}}</div>
+      {% set images = product.variation_field_image['#items'] %}
     {% else %}
-      <div class="product-main-image">{{- product.field_image -}}</div>
-      {% if product.field_image['#items']|length > 1 %}
-        <div class="product-main-image-nav">{{- product.field_image -}}</div>
-      {% endif %}
+      {% set images = product.field_image['#items'] %}
+    {% endif %}
+
+    {% if images|length > 0 %}
+      <div class="product-images">
+        {# Главное изображение #}
+        {% set first = images|first %}
+        <a href="{{ file_url(first.entity.uri.value) }}" data-fancybox="product-gallery">
+          <img src="{{ file_url(first.entity.uri.value) }}" alt="{{ first.alt }}" class="product-image-main" />
+        </a>
+
+        {# Миниатюры, если больше одного изображения #}
+        {% if images|length > 1 %}
+          <div class="product-main-image-nav">
+            {% for item in images|slice(1) %}
+              <a href="{{ file_url(item.entity.uri.value) }}" data-fancybox="product-gallery">
+                <img src="{{ file_url(item.entity.uri.value) }}" alt="{{ item.alt }}" class="product-thumb" />
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
     {% endif %}
 
 
     {% if product.body %}
-      <span>Описание:</span>
-      <div class="product-description mb-40">{{ product.body }}</div>
+      <button type="button" class="product-more-toggle js-product-more-toggle">Подробнее о товаре</button>
+      <div class="product-more-content js-product-more-content">
+        {{ product.body }}
+      </div>
     {% endif %}
   </div>
   <div class="product-details">
@@ -40,10 +62,7 @@
     ) %}
 
     {% if extra_fields|length > 0 %}
-      <button type="button" class="product-more-toggle js-product-more-toggle">Подробнее о товаре</button>
-      <div class="product-more-content js-product-more-content">
-        {{ extra_fields }}
-      </div>
+      {{ extra_fields }}
     {% endif %}
   </div>
 </article>

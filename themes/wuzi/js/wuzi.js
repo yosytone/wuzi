@@ -85,3 +85,24 @@
   };
 
 })(Drupal, once);
+
+
+((Drupal, once, $) => {
+'use strict';
+
+Drupal.behaviors.test = {
+  attach(context, settings) {
+    // Инициализация один раз
+    once('wuzi-mobile-filter-init', 'body', context).forEach(() => {
+      const lazyBlocks = document.querySelectorAll('.lazy-block');
+
+     
+
+      lazyBlocks.forEach(block => observer.observe(block));
+    });
+  }
+};
+
+})(Drupal, once, jQuery);
+
+      

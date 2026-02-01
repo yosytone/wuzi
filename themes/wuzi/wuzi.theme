@@ -26,23 +26,7 @@ function wuzi_preprocess_html(array &$variables): void {}
  * Implements hook_preprocess_page().
  */
 function wuzi_preprocess_page(&$variables) {
-  // Работаем только на страницах терминов
-  if (\Drupal::routeMatch()->getRouteName() === 'entity.taxonomy_term.canonical') {
-    $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
 
-    if ($term instanceof TermInterface) {
-      // Опционально: только для определённого словаря
-      // if ($term->bundle() !== 'material') { return; }
-
-      // Загружаем View
-      $view = \Drupal\views\Views::getView('products_list'); // ← ваш View
-      if ($view && $view->setDisplay('page_1')) { // ← ваш дисплей
-        $view->setArguments([$term->id()]);
-        $view->execute();
-        $variables['term_view'] = $view->render();
-      }
-    }
-  }
 }
 
 /**

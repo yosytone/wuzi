@@ -52,6 +52,7 @@ class UniversalTermEntitiesBlock extends BlockBase implements ContainerFactoryPl
       $variation_fields = [
         'field_product_material',
         'field_color',
+        'field_product_colour',
         // другие поля вариаций
       ];
 

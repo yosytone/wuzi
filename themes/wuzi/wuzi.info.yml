@@ -6,6 +6,7 @@ package: Custom
 core_version_requirement: ^10
 libraries:
   - wuzi/global
+  - wuzi/fancybox
 regions:
   header_top: 'Header Top'
   site_branding: 'Site Branding'

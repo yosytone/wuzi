@@ -8,6 +8,8 @@ use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\taxonomy\TermInterface;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Url;
+use Drupal\Component\Serialization\Json;
 
 /**
  * @file
@@ -17,8 +19,58 @@ use Drupal\taxonomy\Entity\Term;
 /**
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
-function wuzi_preprocess_html(array &$variables): void {}
+function wuzi_preprocess_html(array &$variables): void {
+  $breadcrumb = \Drupal::service('breadcrumb')->build(\Drupal::routeMatch());
+  $links = [];
+  $position = 1; // ← инициализируем здесь
 
+  if ($breadcrumb->getLinks()) {
+    foreach ($breadcrumb->getLinks() as $link) {
+      if ($link->getUrl()->isRouted()) {
+        $url = $link->getUrl()->toString();
+      } else {
+        $url = $link->getUrl()->getUri();
+      }
+      $links[] = [
+        '@type' => 'ListItem',
+        'position' => $position++,
+        'name' => $link->getText(),
+        'item' => $url,
+      ];
+    }
+  }
+
+  // Текущая страница — всегда последняя
+  $current_path = \Drupal::request()->getRequestUri();
+  $current_title = \Drupal::service('title_resolver')->getTitle(\Drupal::request(), \Drupal::routeMatch()->getRouteObject());
+
+  // Добавляем текущую страницу только если есть хотя бы один элемент (или даже если нет — но тогда position = 1)
+  if ($current_title && !empty($current_path)) {
+    $links[] = [
+      '@type' => 'ListItem',
+      'position' => $position, // теперь $position всегда определена
+      'name' => $current_title,
+      'item' => $current_path,
+    ];
+  }
+
+  if (!empty($links)) {
+    $breadcrumb_json = [
+      '@context' => 'https://schema.org', // ← убран лишний пробел
+      '@type' => 'BreadcrumbList',
+      'itemListElement' => $links,
+    ];
+
+    $variables['#attached']['html_head'][] = [
+      [
+        '#tag' => 'script',
+        '#value' => Json::encode($breadcrumb_json),
+        '#attributes' => ['type' => 'application/ld+json'],
+      ],
+      'breadcrumb-json-ld',
+    ];
+  }
+}
 /**
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */

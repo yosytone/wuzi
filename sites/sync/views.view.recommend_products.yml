@@ -275,6 +275,9 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      defaults:
+        footer: false
+      footer: {  }
       display_extenders:
         ajax_history: {  }
       path: recommendations

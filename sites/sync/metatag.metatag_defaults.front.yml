@@ -1,0 +1,16 @@
+uuid: 44b4380f-7ff2-4cb6-857d-43b5dfa9538d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  abstract: 'Упаковочные материалы, Пакеты оптом, Хозтовары опт'
+  canonical_url: '[site:url]'
+  description: 'Упаковочные материалы, Пакеты оптом, Хозтовары опт'
+  keywords: 'Упаковочные материалы | Пакеты оптом | Хозтовары опт'
+  robots: 'index, follow'
+  shortlink: '[site:url]'
+  title: 'Упаковочные материалы | Пакеты оптом | Хозтовары опт'

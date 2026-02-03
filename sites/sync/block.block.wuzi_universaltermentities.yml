@@ -16,7 +16,7 @@ plugin: universal_term_entities
 settings:
   id: universal_term_entities
   label: 'Universal Term Entities'
-  label_display: visible
+  label_display: '0'
   provider: wuzi_blocks
 visibility:
   request_path:

@@ -1,0 +1,11 @@
+uuid: d0c806a8-7e3a-4099-804a-be95e5a047c3
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_term__product_categories
+label: 'Taxonomy term: Product categories'
+tags:
+  abstract: '[term:name], [term:description], [term:parent:name]'
+  description: '[term:description]. [term:name] - купить в интернет магазине Упакмаркет. Большой ассортимент  для любого типа бизнеса.'
+  keywords: '[term:name], [term:name] купить, [term:name] оптом, [term:name] купить оптом, [term:name] дешево, [term:name], [term:name] мелкий опт, [term:parent:name]'
+  title: 'Купить [term:name] оптом - каталог'

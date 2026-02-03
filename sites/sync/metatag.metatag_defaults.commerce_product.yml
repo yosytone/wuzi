@@ -1,0 +1,11 @@
+uuid: 13a61088-c351-4b98-b09f-bf442c1d628e
+langcode: en
+status: true
+dependencies: {  }
+id: commerce_product
+label: Product
+tags:
+  description: 'купить [commerce_product:title] по хорошей цене [commerce_product:default_variation:price] в лучшем качестве. [commerce_product:default_variation:field_about_variation]'
+  keywords: 'купить [commerce_product:title]'
+  robots: 'index, follow'
+  title: '[commerce_product:title] купить в интернет-магазине [site:name] | [site:slogan]'

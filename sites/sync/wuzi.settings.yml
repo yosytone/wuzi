@@ -1,0 +1,30 @@
+features:
+  node_user_picture: 1
+  comment_user_picture: 1
+  comment_user_verification: 1
+  favicon: 1
+logo:
+  use_default: 1
+favicon:
+  use_default: 1
+container_width: '1260'
+header_width: header_width_contained
+main_width: main_width_contained
+footer_width: footer_width_contained
+all_icons_show: 1
+facebook_url: 'https://www.facebook.com/idewdot'
+twitter_url: 'https://twitter.com/dewdots'
+instagram_url: 'https://www.instagram.com/google'
+linkedin_url: 'https://in.linkedin.com/company/google'
+youtube_url: 'https://www.youtube.com/@dev_tut'
+vimeo_url: ''
+vk_url: ''
+whatsapp_url: ''
+github_url: 'https://github.com/dewdot'
+telegram_url: ''
+slider_style_options: slider_three
+scrolltotop_on: 1
+copyright_text: 1
+css_extra: 0
+css_code: ''
+highlight_author_comment: 0

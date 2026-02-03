@@ -225,7 +225,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<a href="/recommendations" style="padding:15px">Смотреть все специальные предложения товары</a>'
+            value: '<a href="/specs" style="padding:15px">Смотреть все специальные предложения товары</a>'
             format: basic_html
           tokenize: false
       display_extenders: {  }
@@ -276,9 +276,12 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      defaults:
+        footer: false
+      footer: {  }
       display_extenders:
         ajax_history: {  }
-      path: recommendations
+      path: specs
     cache_metadata:
       max-age: -1
       contexts:

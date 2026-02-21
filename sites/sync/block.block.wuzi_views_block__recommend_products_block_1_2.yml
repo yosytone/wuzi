@@ -1,0 +1,24 @@
+uuid: 6c3133e5-08ba-48d4-946e-986a22b07050
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.recommend_products
+  module:
+    - vallb
+  theme:
+    - wuzi
+id: wuzi_views_block__recommend_products_block_1_2
+theme: wuzi
+region: content
+weight: 0
+provider: null
+plugin: 'vallb_block:recommend_products-block_1'
+settings:
+  id: 'vallb_block:recommend_products-block_1'
+  label: ''
+  label_display: visible
+  provider: vallb
+  views_label: ''
+  items_per_page: none
+visibility: {  }

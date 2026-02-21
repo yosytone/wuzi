@@ -24,6 +24,7 @@ module:
   config: 0
   contact: 0
   contextual: 0
+  ctools: 0
   datetime: 0
   dblog: 0
   dc_ajax_add_cart: 0
@@ -93,6 +94,7 @@ module:
   views_ui: 0
   visitors: 0
   visitors_geoip: 0
+  workflows: 0
   wuzi_blocks: 0
   pathauto: 1
   views: 10

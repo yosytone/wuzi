@@ -13,7 +13,10 @@
     <ol class="breadcrumb-items">
     {% for item in breadcrumb %}
       <li class="breadcrumb-item">
-        {% if item.url %}
+        {% if loop.first %}
+          {# Здесь меняем 'Home' или 'Главная' на свой текст #}
+          <a href="{{ item.url }}">{{ 'Главная'|t }}</a>
+        {% elseif item.url %}
           <a href="{{ item.url }}">{{ item.text }}</a>
         {% else %}
           {{ item.text }}

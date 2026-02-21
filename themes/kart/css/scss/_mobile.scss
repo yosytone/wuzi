@@ -18,6 +18,36 @@ body.no-scroll {
   }
 }
 
+
+aside#sidebar-left-2:nth-of-type(2) {
+   @media (max-width: 1024px) {
+    display: none;
+  }
+
+  .block-title {
+    color: var(--bold-color);
+  }
+}
+
+
+.mobile-vision {
+  .region-sidebar-first, .region-sidebar-first-2, .region-sidebar-second {
+    display: block;
+  }
+}
+
+.primary-menu-wrapper {
+  .mobile-vision {
+    .block-title {
+      color: var(--light-primary);
+    }
+
+    .sidebar a {
+      color: var(--light-primary);
+    }
+  }
+}
+
 .mobile-bottom-filter-wrap {
   position: fixed;
   top: 0;
@@ -83,6 +113,12 @@ body.no-scroll {
 
   background: white;
   border: 0;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 

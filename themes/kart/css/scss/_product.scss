@@ -37,16 +37,29 @@
   width: 100%;
   overflow: hidden;
 }
-.product .field-type-image img {
-  max-height: 300px;
-  max-width: 100%;
-  object-fit: contain;
+.product .field-type-image {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Чтобы при scale(1.2) картинка не вылезала за края */
+  background-color: #f9f9f9;
   border-radius: 8px;
-  transition: transform 0.3s linear;
 }
+
+.product .field-type-image img {
+  height: 100%; 
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s linear;
+  display: block;
+}
+
 .view .product .field-type-image:hover img {
   transform: scale(1.2);
 }
+
 /* show only first image on view pages and blocks */
   /* .view .product .field-image:not(:nth-child(1)) {
   /* display: none;

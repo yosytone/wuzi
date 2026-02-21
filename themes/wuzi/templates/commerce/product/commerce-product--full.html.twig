@@ -21,7 +21,7 @@
         {# Главное изображение #}
         {% set first = images|first %}
         <a href="{{ file_url(first.entity.uri.value) }}" data-fancybox="product-gallery">
-          <img src="{{ file_url(first.entity.uri.value) }}" alt="{{ first.alt }}" class="product-image-main" />
+          <img src="{{ file_url(first.entity.uri.value) }}" alt="{{ (first.alt ?: 'Фото товара')|escape('html_attr') }}"  class="product-image-main" fetchpriority="high" loading="eager" />
         </a>
 
         {# Миниатюры, если больше одного изображения #}

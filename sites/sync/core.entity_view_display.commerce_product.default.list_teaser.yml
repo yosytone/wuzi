@@ -13,6 +13,7 @@ dependencies:
     - field.field.commerce_product.default.field_prod_category
     - field.field.commerce_product.default.field_product_badges
     - field.field.commerce_product.default.field_specifications
+    - image.style.large
   module:
     - entity_reference_revisions
     - image
@@ -53,7 +54,7 @@ content:
     label: above
     settings:
       image_link: ''
-      image_style: ''
+      image_style: large
       image_loading:
         attribute: lazy
     third_party_settings: {  }

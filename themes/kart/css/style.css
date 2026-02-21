@@ -654,6 +654,21 @@ summary {
   background: var(--color-primary);
   color: #ffffff; }
 
+/* Убирает синюю рамку фокуса для всех кнопок и ссылок-кнопок */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.filter-cancel,
+a:focus {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  /* Убирает синюю вспышку при клике на мобильных устройствах */ }
+
+/* Если хотите оставить выделение для пользователей, использующих клавиатуру (доступность), но скрыть для клика мышкой */
+button:focus:not(:focus-visible) {
+  outline: none; }
+
 .container {
   position: relative;
   width: 100%;
@@ -1107,7 +1122,8 @@ summary {
   color: var(--dark); }
 
 .node-content .field {
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  padding: 2rem; }
 
 /* content-top and content-bottom */
 .region-content-top,
@@ -1560,13 +1576,30 @@ input.delete-order-item {
   width: 100%;
   overflow: hidden; }
 
-.product .field-type-image img {
-  max-height: 300px;
-  max-width: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-  transition: transform 0.3s linear; }
+.product .field-type-image {
+  height: 300px;
+  /* Фиксируем высоту контейнера */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Чтобы при scale(1.2) картинка не вылезала за края */
+  background-color: #f9f9f9;
+  /* Опционально: серый фон, пока фото грузится */
+  border-radius: 8px; }
 
+/* 2. Настраиваем саму картинку */
+.product .field-type-image img {
+  /* Важно: используем height: 100%, чтобы она сразу заняла место */
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  /* Картинка впишется в 300px без искажений */
+  transition: transform 0.3s linear;
+  display: block; }
+
+/* 3. Анимация теперь безопасна */
 .view .product .field-type-image:hover img {
   transform: scale(1.2); }
 
@@ -2431,13 +2464,6 @@ hr.line-double {
   .region-sidebar-first, .region-sidebar-first-2, .region-sidebar-second {
     display: none; } }
 
-.mobile-vision .region-sidebar-first, .mobile-vision .region-sidebar-first-2, .mobile-vision .region-sidebar-second {
-  display: block; }
-.mobile-vision .block-title {
-  color: var(--light-primary); }
-.mobile-vision .sidebar a {
-  color: var(--light-primary); }
-
 .menu-wrap {
   display: grid;
   gap: 20px; }
@@ -2453,6 +2479,20 @@ body.no-scroll {
   @media (min-width: 1024px) {
     .filter-container {
       padding: 0; } }
+
+@media (max-width: 1024px) {
+  aside#sidebar-left-2:nth-of-type(2) {
+    display: none; } }
+aside#sidebar-left-2:nth-of-type(2) .block-title {
+  color: var(--bold-color); }
+
+.mobile-vision .region-sidebar-first, .mobile-vision .region-sidebar-first-2, .mobile-vision .region-sidebar-second {
+  display: block; }
+
+.primary-menu-wrapper .mobile-vision .block-title {
+  color: var(--light-primary); }
+.primary-menu-wrapper .mobile-vision .sidebar a {
+  color: var(--light-primary); }
 
 .mobile-bottom-filter-wrap {
   position: fixed;
@@ -2505,7 +2545,12 @@ body.no-scroll {
   width: auto;
   margin-top: 0;
   background: white;
-  border: 0; }
+  border: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none; }
+  .mobile-bottom-filter-wrap .filter-wrap::-webkit-scrollbar,
+  .mobile-bottom-sort-wrap-panel .sort-wrap::-webkit-scrollbar {
+    display: none; }
 
 .mobile-bottom-filter-wrap .filter-title,
 .mobile-bottom-filter-wrap .filter-price,

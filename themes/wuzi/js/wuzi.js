@@ -41,6 +41,17 @@
             }
           });
         });
+
+        // Очищаем URL от параметров и перезагружаем страницу
+        once('mobile-filter-reset', '.filter-cancel', context).forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.location.href = window.location.pathname;
+          });
+        });
+
       });
     }
   };

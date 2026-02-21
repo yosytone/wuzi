@@ -13,6 +13,7 @@ dependencies:
     - field.field.commerce_product.default.field_prod_category
     - field.field.commerce_product.default.field_product_badges
     - field.field.commerce_product.default.field_specifications
+    - image.style.large
   module:
     - image
 _core:
@@ -27,7 +28,7 @@ content:
     label: hidden
     settings:
       image_link: content
-      image_style: ''
+      image_style: large
       image_loading:
         attribute: lazy
     third_party_settings: {  }

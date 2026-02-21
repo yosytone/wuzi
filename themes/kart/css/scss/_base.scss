@@ -662,3 +662,19 @@ summary {
   background: var(--color-primary);
   color: #ffffff;
 }
+
+/* Убирает синюю рамку фокуса для всех кнопок и ссылок-кнопок */
+button, 
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"], 
+.filter-cancel,
+a:focus {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent; /* Убирает синюю вспышку при клике на мобильных устройствах */
+}
+
+/* Если хотите оставить выделение для пользователей, использующих клавиатуру (доступность), но скрыть для клика мышкой */
+button:focus:not(:focus-visible) {
+    outline: none;
+}

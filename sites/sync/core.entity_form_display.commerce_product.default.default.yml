@@ -13,6 +13,7 @@ dependencies:
     - field.field.commerce_product.default.field_product_badges
     - field.field.commerce_product.default.field_specifications
   module:
+    - inline_entity_form
     - paragraphs
     - path
     - shs
@@ -40,13 +41,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_is_recommend:
-    type: boolean_checkbox
-    weight: 2
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_prod_category:
     type: options_shs
     weight: 7
@@ -59,13 +53,13 @@ content:
     third_party_settings: {  }
   field_product_badges:
     type: options_select
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_specifications:
     type: paragraphs
-    weight: 8
+    weight: 9
     region: content
     settings:
       title: Paragraph
@@ -89,7 +83,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 9
+    weight: 1
     region: content
     settings:
       display_label: true
@@ -112,9 +106,22 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  variations:
+    type: inline_entity_form_simple
+    weight: 8
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
 hidden:
   field_amount: true
   field_color: true
   field_image: true
+  field_is_recommend: true
   stores: true
-  variations: true

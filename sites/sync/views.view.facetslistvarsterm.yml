@@ -128,7 +128,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          more_button_text: 'Load more'
+          more_button_text: 'Загрузить больше'
           end_text: ''
           advanced:
             content_selector: ''

@@ -1,0 +1,12 @@
+services:
+  wuzi_blocks.slide_builder:
+    class: Drupal\wuzi_blocks\Service\SlideBuilderService
+    arguments:
+      - '@entity_type.manager'
+      - '@file_url_generator'
+
+  wuzi_blocks.category_slider:
+    class: Drupal\wuzi_blocks\Service\CategorySliderService
+    arguments:
+      - '@entity_type.manager'
+      - '@wuzi_blocks.slide_builder'

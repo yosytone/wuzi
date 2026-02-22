@@ -68,6 +68,36 @@
 
                   </div>
                 {% endfor %}
+
+                {% for category in category_slides %}
+                  <div class="slider-item category-slide" data-tid="{{ category.tid }}">
+    
+                    {# Вся карточка кликабельна #}
+                    <a href="{{ category.url }}" class="slider-item-link">
+      
+                      <div class="slider-item has-link">
+        
+                        {# Изображение-заглушка или реальное, если добавите поле #}
+                        <div class="slider-image">
+                          {% if category.image %}
+                            {{ category.image }}
+                          {% endif %}
+                        </div>
+
+                        {# Текст слайда #}
+                        <div class="slider-text">
+                          <div class="width50">
+                            <h4 class="category-slide-title">{{ category.name }}</h4>
+                          </div>
+                        </div>
+        
+                      </div>
+      
+                    </a>
+    
+                  </div>
+                {% endfor %}
+
               </div>
             </div>
 
@@ -106,4 +136,5 @@
       </div>
     </div><!--/block-content -->
   {% endblock %}
+
 </div><!--/block -->

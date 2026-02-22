@@ -120,6 +120,72 @@ function wuzi_preprocess_block__block_content__type__block_list(&$variables)
     }
 }
 
+/// ВЫНЕСТИ В СЕРВИС
+
+/**
+ * Helper: Получение рендера изображения (Media/File) для слайда.
+ * Выносим общую логику, чтобы не дублировать код для блока и категорий.
+ */
+function _wuzi_get_slide_image_render($entity) {
+  $image = [];
+  // Проверяем поля на сущности (работает и для Paragraph, и для Term)
+  if ($entity->hasField('field_slide_image') && !$entity->get('field_slide_image')->isEmpty()) {
+    $referenced_entity = $entity->get('field_slide_image')->entity;
+    if ($referenced_entity) {
+      $uri = NULL;
+      $alt = '';
+
+      // Обработка Media
+      if ($referenced_entity instanceof \Drupal\media\MediaInterface && $referenced_entity->hasField('field_media_image')) {
+        $media_image = $referenced_entity->get('field_media_image')->entity;
+        if ($media_image instanceof \Drupal\file\FileInterface) {
+          $uri = $media_image->getFileUri();
+          $alt = $referenced_entity->get('field_media_image')->alt ?? '';
+        }
+      }
+      // Обработка прямого файла
+      elseif ($referenced_entity instanceof \Drupal\file\FileInterface) {
+        $uri = $referenced_entity->getFileUri();
+        $alt = $entity->get('field_slide_image')->alt ?? '';
+      }
+
+      if ($uri) {
+        $image = [
+          '#theme' => 'image_style',
+          '#style_name' => 'wide', // Ваш стиль изображения
+          '#uri' => $uri,
+          '#alt' => $alt,
+        ];
+      }
+    }
+  }
+  return $image;
+}
+
+/**
+ * Helper: Сбор слайдов из сущности (Paragraph или Term).
+ */
+function _wuzi_build_slide_data($entity) {
+  // Пропускаем, если это не параграф типа 'slide' или у термина нет нужного бандла/полей
+  // Здесь проверяем наличие поля заголовка как маркера того, что это слайд
+  if (!$entity->hasField('field_slide_title')) {
+    return NULL;
+  }
+
+  $link = $entity->get('field_slide_button_url')->first();
+  
+  return [
+    'image' => _wuzi_get_slide_image_render($entity),
+    'title' => $entity->get('field_slide_title')->value ?? '',
+    'description' => $entity->hasField('field_slide_description') ? ($entity->get('field_slide_description')->value ?? '') : '',
+    'button_url' => $link,
+    'button_text' => $link ? ($link->title ?: 'Shop now') : '',
+    // Добавляем ссылку на саму категорию для заголовка секции
+    'category_url' => ($entity instanceof Term) ? $entity->toUrl() : null,
+    'category_name' => ($entity instanceof Term) ? $entity->getName() : null,
+  ];
+}
+
 /**
  * Implements hook_preprocess_block__block_content__type__block_banner().
  */
@@ -225,6 +291,36 @@ function wuzi_preprocess_block__block_content__type__block_banner(&$variables)
 
     $variables['slides'] = $slides;
     $variables['banners'] = $banners;
+
+    //
+
+  // === Загрузка категорий для слайдера ===
+  $category_slides = [];
+
+  $tids = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->getQuery()
+    ->condition('vid', 'product_categories')
+    ->condition('status', 1)
+    ->condition('parent', 0)  // <-- термины без родителя (1-й уровень)
+    ->accessCheck(TRUE)
+    ->sort('weight', 'ASC')
+    ->sort('name', 'ASC')
+    ->execute();
+
+  if (!empty($tids)) {
+    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadMultiple($tids);
+  
+    foreach ($terms as $term) {
+      $category_slides[] = [
+        'name' => $term->getName(),
+        'url' => $term->toUrl(),
+        'tid' => $term->id(),
+        // Опционально: можно добавить изображение категории, если есть поле
+        // 'image' => _wuzi_get_term_image($term), 
+      ];
+    }
+  }
+
+  $variables['category_slides'] = $category_slides;
 }
 
 /**

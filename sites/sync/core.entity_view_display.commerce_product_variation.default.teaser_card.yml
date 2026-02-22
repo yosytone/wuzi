@@ -24,15 +24,6 @@ targetEntityType: commerce_product_variation
 bundle: default
 mode: teaser_card
 content:
-  field_units:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
   price:
     type: commerce_price_default
     label: hidden
@@ -52,6 +43,7 @@ hidden:
   field_product_colour: true
   field_product_material: true
   field_size: true
+  field_units: true
   field_upakmarket_image_url: true
   field_width: true
   list_price: true

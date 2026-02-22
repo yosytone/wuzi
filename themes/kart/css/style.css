@@ -15,7 +15,9 @@
   --shadow-primary: 0 0 10px 1px var(--color-primary);
   --shadow-secondary: 0 0 10px 1px var(--color-secondary);
   --font-text: 'Inter', sans-serif;
-  --font-heading: 'Heebo', sans-serif; }
+  --font-heading: 'Heebo', sans-serif;
+  --light-green: #bcf4c5;
+  --color-green: #0adc2c; }
 
 /* Default Box sizing */
 *,
@@ -842,7 +844,7 @@ button:focus:not(:focus-visible) {
   margin: 0; }
 
 .header {
-  background-color: var(--light-primary);
+  background-color: var(--light-green);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1578,7 +1580,6 @@ input.delete-order-item {
 
 .product .field-type-image {
   height: 300px;
-  /* Фиксируем высоту контейнера */
   width: 100%;
   display: flex;
   align-items: center;
@@ -1586,20 +1587,15 @@ input.delete-order-item {
   overflow: hidden;
   /* Чтобы при scale(1.2) картинка не вылезала за края */
   background-color: #f9f9f9;
-  /* Опционально: серый фон, пока фото грузится */
   border-radius: 8px; }
 
-/* 2. Настраиваем саму картинку */
 .product .field-type-image img {
-  /* Важно: используем height: 100%, чтобы она сразу заняла место */
   height: 100%;
   width: 100%;
   object-fit: contain;
-  /* Картинка впишется в 300px без искажений */
   transition: transform 0.3s linear;
   display: block; }
 
-/* 3. Анимация теперь безопасна */
 .view .product .field-type-image:hover img {
   transform: scale(1.2); }
 
@@ -2283,7 +2279,8 @@ hr.line-double {
 
   /* Header */
   .site-brand img {
-    max-height: 60px; }
+    max-height: 60px;
+    max-width: 120px; }
 
   /* Footer */
   .region-footer-bottom .block,

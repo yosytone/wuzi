@@ -19,30 +19,53 @@
               <div class="slider">
                 {% for slide in slides %}
                   <div class="slider-item">
-                    <div class="slider-image">
-                      {% if slide.image %}
-                        {{ slide.image }}
-                      {% else %}
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2500' height='1250' viewBox='0 0 2500 1250'%3E%3Crect width='100%25' height='100%25' fill='%23ccc'/%3E%3Ctext x='50%25' y='50%25' font-size='48' text-anchor='middle' fill='%23999'%3ENo image%3C/text%3E%3C/svg%3E" alt="Placeholder">
-                      {% endif %}
-                    </div>
-                    <div class="slider-text">
-                      <div class="width50">
-                        {% if slide.title %}
-                          <h2>{{ slide.title }}</h2>
-                        {% endif %}
-                        {% if slide.description %}
-                          <p>{{ slide.description }}</p>
-                        {% endif %}
-                        {% if slide.button_url and slide.button_url.uri %}
-                          <div>
-                            <a class="button" href="{{ slide.button_url.uri }}">
-                              {{ slide.button_text|default('Shop now') }}
-                            </a>
-                          </div>
+
+                    {% if slide.button_url and slide.button_url.uri %}
+                      {% set slide_link = true %}
+                      <a href="{{ slide.button_url.uri }}" class="slider-item-link">
+                    {% endif %}
+
+                    <div class="slider-item{% if slide_link %} has-link{% endif %}">
+                      <div class="slider-image">
+                        {% if slide.image %}
+                          {{ slide.image }}
+                        {% else %}
+                          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2500' height='1250' viewBox='0 0 2500 1250'%3E%3Crect width='100%25' height='100%25' fill='%23ccc'/%3E%3Ctext x='50%25' y='50%25' font-size='48' text-anchor='middle' fill='%23999'%3ENo image%3C/text%3E%3C/svg%3E" alt="Placeholder">
                         {% endif %}
                       </div>
+  
+                      <div class="slider-text">
+                        <div class="width50">
+                          {% if slide.title %}
+                            <h2>{{ slide.title }}</h2>
+                          {% endif %}
+                          {% if slide.description %}
+                            <p>{{ slide.description }}</p>
+                          {% endif %}
+      
+                          {# Кнопку оставляем визуально, но убираем ссылку, если весь слайд кликабельный #}
+                          {% if slide.button_text and not slide_link %}
+                            <div>
+                              <a class="button" href="{{ slide.button_url.uri }}">
+                                {{ slide.button_text }}
+                              </a>
+                            </div>
+                          {% elseif slide.button_text and slide_link %}
+                            {# Опционально: показываем кнопку как визуальный элемент без вложенной ссылки #}
+                            <div>
+                              <span class="button button-static">
+                                {{ slide.button_text }}
+                              </span>
+                            </div>
+                          {% endif %}
+                        </div>
+                      </div>
                     </div>
+
+                    {% if slide_link %}
+                      </a>
+                    {% endif %}
+
                   </div>
                 {% endfor %}
               </div>

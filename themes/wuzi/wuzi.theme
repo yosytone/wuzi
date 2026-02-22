@@ -157,7 +157,7 @@ function wuzi_preprocess_block__block_content__type__block_banner(&$variables)
                         if ($uri) {
                             $image = [
                                 '#theme' => 'image_style',
-                                '#style_name' => 'large',
+                                '#style_name' => 'wide',
                                 '#uri' => $uri,
                                 '#alt' => $alt,
                             ];
@@ -204,7 +204,7 @@ function wuzi_preprocess_block__block_content__type__block_banner(&$variables)
                         if ($uri) {
                             $image = [
                                 '#theme' => 'image_style',
-                                '#style_name' => 'large',
+                                '#style_name' => 'wide',
                                 '#uri' => $uri,
                                 '#alt' => $alt,
                             ];

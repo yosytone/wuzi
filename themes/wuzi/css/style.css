@@ -105,6 +105,9 @@
     flex-shrink: 0;
     white-space: nowrap; }
 
+.view-facetslistvarsterm .product .field__teaser {
+  justify-content: end; }
+
 /* Обёртка списка товаров */
 .products {
   display: grid;
@@ -175,20 +178,20 @@
   .products {
     grid-template-columns: 1fr; } }
 .product .field-name-price {
-  color: var(--color-primary); }
+  color: var(--color-green); }
 
 .product .field-name-price::after {
-  content: " руб./шт.";
-  font-size: 0.8rem; }
+  content: " ₽";
+  font-size: 1.2rem; }
 
 .product-details span {
   font-weight: bold; }
 .product-details .field-name-price {
-  color: var(--color-primary);
+  color: var(--color-green);
   font-size: 2rem;
   font-weight: bold; }
 .product-details .field-name-price::after {
-  content: " руб./шт.";
+  content: " ₽";
   font-size: 1.5rem; }
 
 .block-title {

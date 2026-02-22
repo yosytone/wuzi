@@ -136,6 +136,17 @@ processor_settings:
       - title
   language_with_fallback: {  }
   rendered_item: {  }
+  tokenizer:
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: false
+    fields:
+      - title
+    spaces: ''
+    ignored: ._-
+    overlap_cjk: 0
+    minimum_word_size: '4'
 tracker_settings:
   default:
     indexing_order: fifo

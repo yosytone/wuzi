@@ -144,7 +144,20 @@ display:
         type: search_api_none
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_products
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters:
         search_api_fulltext:
@@ -155,7 +168,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: search_api_fulltext
-          operator: and
+          operator: or
           value: ''
           group: 1
           exposed: true
@@ -177,7 +190,7 @@ display:
               content_editor: '0'
               administrator: '0'
             expose_fields: false
-            placeholder: ''
+            placeholder: 'Введите название товара'
             searched_fields_id: search_api_fulltext_searched_fields
             value_maxlength: 128
             value_max_words: null
@@ -193,9 +206,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          parse_mode: direct
-          min_length: null
-          fields: {  }
+          parse_mode: complex
+          min_length: 4
+          fields:
+            - title
       style:
         type: default
       row:
@@ -234,6 +248,22 @@ display:
     display_title: Attachment
     display_plugin: attachment
     position: 3
+    display_options:
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+      tags:
+        - 'config:search_api.index.products'
+        - 'search_api_list:products'
+  attachment_2:
+    id: attachment_2
+    display_title: 'Attachment 2'
+    display_plugin: attachment
+    position: 4
     display_options:
       display_extenders: {  }
     cache_metadata:

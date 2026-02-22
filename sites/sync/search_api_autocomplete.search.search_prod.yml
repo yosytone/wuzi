@@ -1,0 +1,28 @@
+uuid: 4cae4366-3c13-4fcb-8cfb-30f49e3d4507
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.products
+    - views.view.search_prod
+  module:
+    - views
+id: search_prod
+label: 'Поиск товаров'
+index_id: products
+suggester_settings:
+  live_results:
+    fields: {  }
+    highlight:
+      enabled: false
+      field: ''
+    suggest_keys: false
+    view_modes: {  }
+suggester_weights: {  }
+suggester_limits: {  }
+search_settings:
+  'views:search_prod':
+    displays:
+      default: true
+      selected: {  }
+options: {  }

@@ -3,8 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.product_categories.field_category_banner
     - taxonomy.vocabulary.product_categories
   module:
+    - media_library
     - path
     - text
 id: taxonomy_term.product_categories.default
@@ -19,6 +21,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_category_banner:
+    type: media_library_widget
+    weight: 101
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   name:
     type: string_textfield

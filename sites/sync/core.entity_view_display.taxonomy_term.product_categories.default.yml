@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.product_categories.field_category_banner
     - taxonomy.vocabulary.product_categories
   module:
     - text
@@ -18,4 +19,14 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+  field_category_banner:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true
